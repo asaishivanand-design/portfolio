@@ -55,6 +55,21 @@ nav a { text-decoration: none; color: var(--text); }
 .hero h1 { font-size: 48px; }
 .hero p { color: gray; }
 
+/* BUTTONS */
+.btn {
+    margin-top: 15px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    background: black;
+    color: white;
+    cursor: pointer;
+}
+.btn.secondary {
+    background: #38bdf8;
+    color: black;
+}
+
 /* SECTION */
 section {
     max-width: 1000px;
@@ -99,21 +114,19 @@ section {
     border-radius: 50%;
 }
 
-/* TAG */
-.tag {
-    display: inline-block;
-    background: #ddd;
-    padding: 5px 10px;
-    border-radius: 10px;
-    margin: 5px;
-    font-size: 12px;
+/* SOCIAL */
+.social a {
+    display: block;
+    margin: 6px 0;
+    color: #38bdf8;
+    text-decoration: none;
 }
 
-/* FADE ANIMATION */
+/* FADE */
 .fade {
     opacity: 0;
     transform: translateY(25px);
-    transition: all 0.8s ease;
+    transition: 0.8s;
 }
 .fade.show {
     opacity: 1;
@@ -136,7 +149,6 @@ footer {
 <a href="#experience">Experience</a>
 <a href="#projects">Projects</a>
 <a href="#journey">Journey</a>
-<a href="#blog">Blog</a>
 <a href="#contact">Contact</a>
 
 <span class="toggle" onclick="toggleMode()">🌙</span>
@@ -147,6 +159,11 @@ footer {
 <h1>Shivanand</h1>
 <p>AIML Student • Night Owl • Anime Guy</p>
 <p>Runs on curiosity. Not caffeine.</p>
+
+<a href="resume.pdf" download>
+<button class="btn">Download Resume</button>
+</a>
+
 </div>
 
 <section id="about" class="fade">
@@ -179,27 +196,18 @@ footer {
 <div class="grid">
 <div class="card">
 <h3>AI Steganography Detector</h3>
-<p>
-Detect hidden data inside images using ML.<br><br>
-Focus: CNNs, robustness, real-world application.
-</p>
+<p>Detect hidden data inside images using ML.</p>
 <a href="https://github.com/asaishivanand-design">View Code →</a>
 </div>
 
 <div class="card">
 <h3>Research Paper</h3>
-<p>
-First paper on image steganography.<br>
-Small journal, but first step into research.
-</p>
+<p>First paper on steganography (starting point).</p>
 </div>
 
 <div class="card">
 <h3>Portfolio System</h3>
-<p>
-Building structured online presence.<br>
-(No more random GitHub dumps.)
-</p>
+<p>Structured digital presence (no random repos).</p>
 </div>
 </div>
 
@@ -209,72 +217,38 @@ Building structured online presence.<br>
 <h2>Journey</h2>
 
 <div class="timeline">
-
-<div class="card">
-JEE arc → didn’t crack → SRM unlocked (character development).
-</div>
-
-<div class="card">
-Introvert → started talking → now unexpectedly social.
-</div>
-
-<div class="card">
-Chaos phase → explored everything, mastered nothing.
-</div>
-
-<div class="card">
-Missed NTL → procrastination wins 🏆
-</div>
-
-<div class="card">
-Joined lab → started doing actual work.
-</div>
-
-<div class="card">
-Organized hackathons → became “event guy”.
-</div>
-
-<div class="card">
-First research paper → small, but start matters.
-</div>
-
-<div class="card">
-Now → focused AIML, building and improving.
-</div>
-
-</div>
-
-</section>
-
-<section id="blog" class="fade">
-<h2>Blog / Thoughts</h2>
-
-<div class="card">
-<a href="https://medium.com/@asaishivanand">→ Read on Medium</a>
-</div>
-
-<div class="card">
-Learning by building • Hidden data • 2AM ideas
-</div>
-
-</section>
-
-<section class="fade">
-<h2>Life</h2>
-
-<div class="grid">
-<div class="card">🍜 Cooking (veg) — Maggie expert</div>
-<div class="card">🎌 Anime 1000+</div>
-<div class="card">📚 Manga reader</div>
-<div class="card">🌙 Night owl</div>
+<div class="card">JEE → didn’t crack → SRM unlocked</div>
+<div class="card">Introvert → social upgrade</div>
+<div class="card">Chaos → explored everything</div>
+<div class="card">Missed NTL → procrastination arc</div>
+<div class="card">Joined lab → real work begins</div>
+<div class="card">Hackathons + events</div>
+<div class="card">First research paper</div>
+<div class="card">Now → focused AIML</div>
 </div>
 
 </section>
 
 <section id="contact" class="fade">
-<h2>Contact</h2>
+<h2>Contact & Profiles</h2>
+
 <p>Email: asaishivanand@gmail.com</p>
 <p>Phone: Available on request</p>
+
+<div class="social">
+<a href="https://github.com/asaishivanand-design">GitHub</a>
+<a href="https://www.linkedin.com/in/a-sai-shivanand-9398b3321">LinkedIn</a>
+<a href="https://medium.com/@asaishivanand">Medium</a>
+<a href="https://huggingface.co/shivanand21">HuggingFace</a>
+<a href="https://leetcode.com/u/shivanand_appalla/">LeetCode</a>
+</div>
+
+<br>
+
+<a href="resume.pdf" download>
+<button class="btn secondary">Download Resume</button>
+</a>
+
 </section>
 
 <footer>
