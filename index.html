@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Shivanand | System</title>
+<title>Shivanand | AIML Portfolio</title>
 
 <style>
 body {
     margin: 0;
-    font-family: 'Courier New', monospace;
-    background: black;
-    color: #00ff9f;
+    font-family: 'Segoe UI', sans-serif;
+    background: #0f172a;
+    color: white;
     scroll-behavior: smooth;
 }
 
@@ -16,15 +16,15 @@ body {
 nav {
     position: sticky;
     top: 0;
-    background: black;
+    background: rgba(30,41,59,0.9);
     padding: 15px;
     text-align: center;
-    border-bottom: 1px solid #00ff9f;
 }
 nav a {
     margin: 0 15px;
-    color: #00ff9f;
+    color: #38bdf8;
     text-decoration: none;
+    font-weight: bold;
 }
 
 /* HERO */
@@ -32,80 +32,73 @@ nav a {
     text-align: center;
     padding: 80px 20px;
 }
-.avatar {
+.hero img {
     width: 120px;
     border-radius: 50%;
-    border: 2px solid #00ff9f;
-    box-shadow: 0 0 20px #00ff9f;
+    border: 3px solid #38bdf8;
 }
 .hero h1 {
     font-size: 42px;
 }
-.typing {
-    border-right: 2px solid #00ff9f;
-    white-space: nowrap;
-    overflow: hidden;
-    animation: typing 4s steps(30), blink 0.5s infinite alternate;
+.hero span {
+    color: #38bdf8;
 }
-@keyframes typing {
-    from { width: 0 }
-    to { width: 100% }
+.hero p {
+    opacity: 0.85;
 }
-@keyframes blink {
-    50% { border-color: transparent }
+.btn {
+    margin-top: 20px;
+    padding: 12px 25px;
+    border-radius: 8px;
+    border: none;
+    background: #38bdf8;
+    color: black;
+    cursor: pointer;
 }
 
 /* SECTION */
 section {
-    padding: 50px 20px;
+    padding: 60px 20px;
     max-width: 900px;
     margin: auto;
 }
 h2 {
-    color: #00ff9f;
+    color: #38bdf8;
 }
 
-/* TERMINAL CARD */
+/* CARD */
 .card {
-    background: #020617;
-    border: 1px solid #00ff9f;
+    background: #1e293b;
     padding: 20px;
     margin: 20px 0;
-    border-radius: 8px;
-    box-shadow: 0 0 10px #00ff9f;
+    border-radius: 12px;
+    transition: 0.3s;
 }
 .card:hover {
-    transform: scale(1.02);
+    transform: translateY(-5px);
 }
 
-/* BUTTON */
-.btn {
-    padding: 10px 20px;
-    background: black;
-    border: 1px solid #00ff9f;
-    color: #00ff9f;
-    cursor: pointer;
+/* TAGS */
+.tag {
+    display: inline-block;
+    background: #334155;
+    padding: 5px 10px;
+    margin: 5px;
+    border-radius: 6px;
+    font-size: 12px;
 }
 
 /* LINKS */
 .links a {
     display: block;
     margin: 6px 0;
-    color: #00ff9f;
-}
-
-/* MATRIX BG */
-canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: -1;
+    color: #38bdf8;
 }
 
 /* FADE */
 .fade {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(20px);
     transition: 1s;
 }
 .fade.show {
@@ -116,7 +109,7 @@ canvas {
 footer {
     text-align: center;
     padding: 20px;
-    border-top: 1px solid #00ff9f;
+    background: #1e293b;
 }
 </style>
 
@@ -124,105 +117,104 @@ footer {
 
 <body>
 
-<canvas id="matrix"></canvas>
-
 <nav>
-<a href="#">root</a>
-<a href="#about">about</a>
-<a href="#projects">projects</a>
-<a href="#contact">contact</a>
+<a href="#">Home</a>
+<a href="#about">About</a>
+<a href="#projects">Projects</a>
+<a href="#life">Life</a>
+<a href="#contact">Contact</a>
 </nav>
 
 <div class="hero">
-<img class="avatar" src="https://i.imgur.com/ZF6s192.png">
-
-<h1 class="typing">Shivanand.exe</h1>
-<p>> AIML student initializing...</p>
-<p>> status: building something dangerous 🚀</p>
+<img src="https://i.imgur.com/ZF6s192.png">
+<h1>Hi, I'm <span>Shivanand</span></h1>
+<p>AIML Student | Future Researcher | Night Owl 🦉</p>
+<p>I don’t run on caffeine. I run on curiosity.</p>
 
 <button class="btn" onclick="document.getElementById('projects').scrollIntoView()">
-Access Projects
+View My Work
 </button>
 </div>
 
 <section id="about" class="fade">
-<h2>> about_me</h2>
+<h2>About Me</h2>
 <div class="card">
 <p>
-I explore systems, break assumptions, and build things from scratch.<br><br>
-Currently focused on AI, hidden data detection, and real-world problem solving.<br><br>
-Not here to follow the path — here to create one.
+I’m an AIML student focused on building meaningful projects and understanding how things actually work.<br><br>
+
+I’m not here just to pass exams — I’m here to build, experiment, and improve consistently.<br><br>
+
+Also, I don’t drink coffee… or cool drinks… which means all my code runs on pure willpower.
 </p>
 </div>
 </section>
 
 <section id="projects" class="fade">
-<h2>> projects</h2>
+<h2>Projects</h2>
 
 <div class="card">
 <h3>AI Steganography Detector</h3>
 <p>
-Detect hidden data inside images using ML.<br>
-Because nothing should stay hidden forever.
+Detect hidden data inside images using machine learning.<br><br>
+Because if something is hidden… I want to find it.
 </p>
 
-<p>> status: in development...</p>
-
 <a href="https://github.com/asaishivanand-design" target="_blank">
-[ View Source Code ]
+→ View on GitHub
 </a>
 </div>
 
 </section>
 
-<section id="contact" class="fade">
-<h2>> contact</h2>
+<section id="life" class="fade">
+<h2>Beyond Code</h2>
+
 <div class="card">
-<p>Email: asaishivanand@gmail.com</p>
-<p>Phone: Access Restricted 🔒</p>
+<p>
+🍜 Can cook almost anything (veg only). Maggie is a specialty.<br><br>
+
+🌙 Night owl — most ideas come after midnight (and surprisingly… they work).<br><br>
+
+🎌 Anime watcher (1000+ completed) + manga reader.<br>
+Yes, this is both a hobby and a personality trait.<br><br>
+
+🧠 AIML is my main domain — everything else is just supporting cast.
+</p>
+
+<div>
+<span class="tag">Cooking</span>
+<span class="tag">Anime</span>
+<span class="tag">Manga</span>
+<span class="tag">AIML</span>
+<span class="tag">Late Night Thinking</span>
+</div>
+
+</div>
+
+</section>
+
+<section class="fade">
+<h2>Profiles</h2>
+<div class="links">
+<a href="https://github.com/asaishivanand-design">GitHub</a>
+<a href="https://www.linkedin.com/in/a-sai-shivanand-9398b3321">LinkedIn</a>
+<a href="https://medium.com/@asaishivanand">Medium</a>
+<a href="https://huggingface.co/shivanand21">HuggingFace</a>
+<a href="https://leetcode.com/u/shivanand_appalla/">LeetCode</a>
 </div>
 </section>
 
+<section id="contact" class="fade">
+<h2>Contact</h2>
+<p>Email: asaishivanand@gmail.com</p>
+<p>Phone: Available on request</p>
+</section>
+
 <footer>
-<p>system.out.println("Built by Shivanand");</p>
+<p>© 2026 Shivanand | Built with consistency (not caffeine)</p>
 </footer>
 
 <script>
-// MATRIX EFFECT
-const canvas = document.getElementById("matrix");
-const ctx = canvas.getContext("2d");
-
-canvas.height = window.innerHeight;
-canvas.width = window.innerWidth;
-
-const letters = "01";
-const fontSize = 14;
-const columns = canvas.width / fontSize;
-
-const drops = [];
-for(let i=0;i<columns;i++) drops[i]=1;
-
-function draw(){
-    ctx.fillStyle = "rgba(0,0,0,0.05)";
-    ctx.fillRect(0,0,canvas.width,canvas.height);
-
-    ctx.fillStyle = "#00ff9f";
-    ctx.font = fontSize+"px monospace";
-
-    for(let i=0;i<drops.length;i++){
-        const text = letters[Math.floor(Math.random()*letters.length)];
-        ctx.fillText(text,i*fontSize,drops[i]*fontSize);
-
-        if(drops[i]*fontSize > canvas.height && Math.random()>0.975)
-            drops[i]=0;
-
-        drops[i]++;
-    }
-}
-
-setInterval(draw, 33);
-
-// FADE
 const faders = document.querySelectorAll('.fade');
 
 window.addEventListener('scroll', () => {
