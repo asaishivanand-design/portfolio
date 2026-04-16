@@ -32,7 +32,7 @@ nav {
     padding: 15px;
     display: flex;
     justify-content: center;
-    gap: 25px;
+    gap: 20px;
     border-bottom: 1px solid #ccc;
 }
 nav a { text-decoration: none; color: var(--text); }
@@ -111,15 +111,41 @@ section {
     border-radius: 50%;
 }
 
+/* FUN CARDS */
+.fun { position: relative; overflow: hidden; }
+
+.stat {
+    display: block;
+    margin-top: 10px;
+    font-size: 12px;
+    opacity: 0.6;
+}
+
+.fun::after {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(56,189,248,0.1), transparent);
+    top: -50%;
+    left: -50%;
+    opacity: 0;
+    transition: 0.4s;
+}
+.fun:hover::after { opacity: 1; }
+
+.roast {
+    border: 1px dashed rgba(255,100,100,0.4);
+}
+
 /* SOCIAL */
 .social a {
     display: block;
     margin: 6px 0;
     color: #38bdf8;
-    text-decoration: none;
 }
 
-/* FADE */
+/* ANIMATION */
 .fade {
     opacity: 0;
     transform: translateY(40px);
@@ -136,18 +162,17 @@ footer {
     color: gray;
 }
 </style>
-
 </head>
 
 <body>
 
 <nav>
 <a href="#about">About</a>
-<a href="#experience">Experience</a>
 <a href="#labs">Labs</a>
 <a href="#projects">Projects</a>
 <a href="#research">Research</a>
 <a href="#journey">Journey</a>
+<a href="#aboutme">About Me</a>
 <a href="#contact">Contact</a>
 
 <span class="toggle" onclick="toggleMode()">🌙</span>
@@ -162,127 +187,95 @@ footer {
 <a href="resume.pdf" download>
 <button class="btn">Download Resume</button>
 </a>
-
 </div>
 
 <section id="about" class="fade">
 <h2>About</h2>
-
 <div class="grid">
 <div class="card">Focused on AIML and real-world systems.</div>
 <div class="card">Prefers building over memorizing.</div>
 <div class="card">Ideas arrive after midnight 🌙</div>
 <div class="card">No caffeine. Still functioning.</div>
 </div>
-
-<p style="opacity:0.7;">
-Building towards AI research and real-world problem solving.
-</p>
-
-</section>
-
-<section id="experience" class="fade">
-<h2>Experience</h2>
-
-<div class="grid">
-<div class="card"><b>Singularity Lab</b><br>AI/ML exploration</div>
-<div class="card"><b>Hackathon Core Team</b><br>Mission Schrodinger’s Cat</div>
-<div class="card"><b>AWS xCube</b><br>Hospitality Lead</div>
-<div class="card"><b>ACM Chapter</b><br>PR & Events</div>
-</div>
-
 </section>
 
 <section id="labs" class="fade">
-<h2>Labs & Research</h2>
-
+<h2>Labs</h2>
 <div class="grid">
-
-<div class="card">
-<h3>🏢 Singularity Lab</h3>
-<p>Student-driven innovation environment.</p>
-<ul>
-<li>AI/ML exploration</li>
-<li>Hands-on experimentation</li>
-<li>Collaborative work</li>
-</ul>
+<div class="card">🏢 Singularity Lab — AI/ML exploration</div>
+<div class="card">🤖 Prajna Kritrima — AIML sub-lab</div>
 </div>
-
-<div class="card">
-<h3>🤖 Prajna Kritrima</h3>
-<p>AIML focused sub-lab.</p>
-<ul>
-<li>ML & DL concepts</li>
-<li>Model building</li>
-<li>Research thinking</li>
-</ul>
-</div>
-
-</div>
-
 </section>
 
 <section id="projects" class="fade">
 <h2>Projects</h2>
-
 <div class="grid">
 <div class="card">
 <h3>AI Steganography Detector</h3>
 <p>Detect hidden data in images using ML.</p>
 <a href="https://github.com/asaishivanand-design">View Code →</a>
 </div>
-
 <div class="card">
 <h3>Research Paper</h3>
 <p>First step into research.</p>
 </div>
-
-<div class="card">
-<h3>Portfolio System</h3>
-<p>Structured digital presence.</p>
 </div>
-</div>
-
 </section>
 
 <section id="research" class="fade">
 <h2>Research</h2>
-
 <div class="card">
-<h3>🔬 Image Steganography Detection</h3>
-
 <div class="grid">
-<div class="card">CNN based approach</div>
-<div class="card">Cross dataset generalization</div>
-<div class="card">Robustness testing</div>
+<div class="card">CNN approach</div>
+<div class="card">Robust detection</div>
 <div class="card">Paper published</div>
 </div>
-
 </div>
-
 </section>
 
 <section id="journey" class="fade">
 <h2>Journey</h2>
-
 <div class="timeline">
-<div class="card">JEE → didn’t crack → SRM unlocked</div>
-<div class="card">Introvert → social upgrade</div>
-<div class="card">Exploration phase chaos</div>
-<div class="card">Missed NTL → procrastination arc</div>
-<div class="card">Joined lab → real work begins</div>
-<div class="card">Hackathons & events</div>
-<div class="card">First research paper</div>
-<div class="card">Now → focused AIML</div>
+<div class="card">JEE → SRM arc</div>
+<div class="card">Introvert → social</div>
+<div class="card">Chaos phase</div>
+<div class="card">Missed NTL</div>
+<div class="card">Joined lab</div>
+<div class="card">Research start</div>
+</div>
+</section>
+
+<section id="aboutme" class="fade">
+<h2>About Me</h2>
+
+<div class="grid">
+
+<div class="card fun">
+<h3>🍜 Cooking</h3>
+<p>Maggie optimized. Chef mode unlocked.</p>
+<span class="stat">Skill: 8/10</span>
+</div>
+
+<div class="card fun">
+<h3>🎌 Anime</h3>
+<p>1000+ anime. Not casual anymore.</p>
+<span class="stat">Time: Uncountable</span>
+</div>
+
+<div class="card fun roast">
+<h3>😂 Self Roast</h3>
+<p>Explored everything. Missed NTL. Improving now.</p>
+<span class="stat">Status: Fixing life</span>
+</div>
+
 </div>
 
 </section>
 
 <section id="contact" class="fade">
-<h2>Contact & Profiles</h2>
+<h2>Contact</h2>
 
 <p>Email: asaishivanand@gmail.com</p>
-<p>Phone: Available on request</p>
 
 <div class="social">
 <a href="https://github.com/asaishivanand-design">GitHub</a>
@@ -310,14 +303,13 @@ function toggleMode() {
 }
 
 const faders = document.querySelectorAll('.fade');
-
-const observer = new IntersectionObserver((entries) => {
+const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
         if(entry.isIntersecting){
             entry.target.classList.add('show');
         }
     });
-}, { threshold: 0.15 });
+}, {threshold: 0.15});
 
 faders.forEach(el => observer.observe(el));
 </script>
