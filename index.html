@@ -4,33 +4,48 @@
 <title>Shivanand | AIML</title>
 
 <style>
+:root {
+    --bg: #ffffff;
+    --text: #111;
+    --card: #f5f5f5;
+}
+
+.dark {
+    --bg: #020617;
+    --text: #e2e8f0;
+    --card: #1e293b;
+}
+
 body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-    background: #ffffff;
-    color: #111;
-    scroll-behavior: smooth;
+    background: var(--bg);
+    color: var(--text);
+    transition: 0.3s;
 }
 
 /* NAVBAR */
 nav {
     position: sticky;
     top: 0;
-    background: rgba(255,255,255,0.8);
     backdrop-filter: blur(10px);
     padding: 15px;
     display: flex;
     justify-content: center;
-    gap: 30px;
-    border-bottom: 1px solid #eee;
+    gap: 25px;
+    border-bottom: 1px solid #ccc;
 }
 nav a {
     text-decoration: none;
-    color: #555;
+    color: var(--text);
     font-size: 14px;
 }
-nav a:hover {
-    color: black;
+
+/* TOGGLE */
+.toggle {
+    position: absolute;
+    right: 20px;
+    cursor: pointer;
 }
 
 /* HERO */
@@ -44,17 +59,13 @@ nav a:hover {
 }
 .hero h1 {
     font-size: 48px;
-    margin: 10px 0;
 }
 .hero p {
-    color: #666;
-    max-width: 500px;
-    margin: auto;
+    color: gray;
 }
 
 /* BUTTON */
 .btn {
-    margin-top: 20px;
     padding: 10px 20px;
     border-radius: 20px;
     border: none;
@@ -69,50 +80,29 @@ section {
     margin: auto;
     padding: 80px 20px;
 }
-h2 {
-    font-size: 22px;
-    margin-bottom: 20px;
-}
+h2 { font-size: 22px; }
 
 /* CARD */
 .card {
-    background: #f8f8f8;
+    background: var(--card);
     padding: 20px;
     border-radius: 16px;
     margin: 15px 0;
-    transition: 0.3s;
-}
-.card:hover {
-    transform: scale(1.02);
-}
-
-/* GRID */
-.grid {
-    display: grid;
-    gap: 20px;
-}
-
-/* IMAGE */
-.card img {
-    width: 100%;
-    border-radius: 12px;
-    margin-top: 10px;
 }
 
 /* TAG */
 .tag {
     display: inline-block;
-    background: #eaeaea;
+    background: #ddd;
     padding: 5px 10px;
     border-radius: 10px;
-    margin: 5px 5px 0 0;
+    margin: 5px;
     font-size: 12px;
 }
 
 /* LINKS */
 .links a {
     display: block;
-    color: black;
     margin: 5px 0;
 }
 
@@ -120,7 +110,7 @@ h2 {
 footer {
     text-align: center;
     padding: 40px;
-    color: #888;
+    color: gray;
 }
 </style>
 
@@ -130,28 +120,19 @@ footer {
 
 <nav>
 <a href="#about">About</a>
+<a href="#experience">Experience</a>
 <a href="#projects">Projects</a>
-<a href="#life">Life</a>
+<a href="#blog">Blog</a>
 <a href="#contact">Contact</a>
+
+<span class="toggle" onclick="toggleMode()">🌙</span>
 </nav>
 
 <div class="hero">
 <img src="https://i.imgur.com/ZF6s192.png">
 <h1>Shivanand</h1>
-
-<p>
-AIML student building things, overthinking occasionally,  
-and somehow still getting ideas at 2AM.
-</p>
-
-<p>
-Does not run on coffee.  
-Runs on curiosity, late nights, and random breakthroughs.
-</p>
-
-<button class="btn" onclick="document.getElementById('projects').scrollIntoView()">
-View Work
-</button>
+<p>AIML Student • Night Owl • Anime Guy</p>
+<p>No caffeine. Still working.</p>
 </div>
 
 <section id="about">
@@ -159,31 +140,32 @@ View Work
 
 <div class="card">
 <p>
-I’m focused on AI/ML and building systems that actually work in the real world.<br><br>
-
-I prefer:
-<ul>
-<li>Experimentation over memorization</li>
-<li>Understanding over shortcuts</li>
-<li>Building over just watching tutorials</li>
-</ul>
-
-Also:
-<ul>
-<li>No caffeine. Still functioning.</li>
-<li>Most thinking happens at night.</li>
-<li>Yes, I will randomly get ideas at 3AM.</li>
-</ul>
+I focus on building AI systems and understanding them deeply.<br><br>
+I prefer experimenting over memorizing.<br><br>
+Most of my thinking happens at night — surprisingly effective.
 </p>
 </div>
 
+</section>
+
+<section id="experience">
+<h2>Experience</h2>
+
 <div class="card">
+<h3>Singularity Lab — AIML Lab</h3>
+<p><b>Member • Sept 2025 – Present</b></p>
+
+<ul>
+<li>Exploring AI/ML concepts beyond classroom learning</li>
+<li>Participating in technical discussions and idea building</li>
+<li>Working on real-world problem-solving approaches</li>
+<li>Collaborating with peers on implementations</li>
+</ul>
+
 <p>
-Current mission:<br><br>
-→ Become really good at AIML  
-→ Build projects that are actually useful  
-→ Not become “just another resume”
+Learning how actual systems work instead of just reading about them.
 </p>
+
 </div>
 
 </section>
@@ -191,50 +173,53 @@ Current mission:<br><br>
 <section id="projects">
 <h2>Projects</h2>
 
-<div class="grid">
-
 <div class="card">
 <h3>AI Steganography Detector</h3>
-
 <p>
-Detect hidden data in images using ML.<br><br>
-Because apparently images can have secrets… and I don’t like secrets.
+Detect hidden data inside images using machine learning.<br><br>
+Currently exploring CNN models and robustness.
 </p>
 
 <a href="https://github.com/asaishivanand-design">View Code →</a>
-
-<img src="https://i.imgur.com/Z7AzH2c.png">
-</div>
-
-<div class="card">
-<h3>Portfolio & GitHub</h3>
-
-<p>
-Trying to maintain a clean technical presence.<br><br>
-Translation: not dumping random code at 3AM anymore.
-</p>
-
-</div>
-
 </div>
 
 </section>
 
-<section id="life">
-<h2>Life (Outside Code)</h2>
+<section id="blog">
+<h2>Blog / Ideas</h2>
+
+<div class="card">
+<h3>Why hidden data detection matters</h3>
+<p>
+Thinking about how data can be hidden in images and how AI can detect it.
+</p>
+</div>
+
+<div class="card">
+<h3>Learning vs Building</h3>
+<p>
+Real learning starts when you build things, not when you just watch tutorials.
+</p>
+</div>
+
+<div class="card">
+<h3>2AM thoughts</h3>
+<p>
+Some of the best ideas come at night. Still verifying if they are genius or just sleep deprivation.
+</p>
+</div>
+
+</section>
+
+<section>
+<h2>Life</h2>
 
 <div class="card">
 <p>
-🍜 Cooking — can cook almost anything veg  
-(Maggie is optimized to perfection)<br><br>
-
-🎌 Anime — 1000+ watched  
-This is no longer a hobby. It’s a parallel life.<br><br>
-
-📚 Manga reader — because waiting for anime is pain<br><br>
-
-🌙 Night owl — brain works better after midnight  
-(Not sure why, but we accept it)
+🍜 Cooking (veg) — Maggie specialist<br><br>
+🎌 Anime (1000+) — not casual anymore<br><br>
+📚 Manga reader<br><br>
+🌙 Night owl — peak thinking hours
 </p>
 
 <div>
@@ -242,34 +227,10 @@ This is no longer a hobby. It’s a parallel life.<br><br>
 <span class="tag">Anime</span>
 <span class="tag">Manga</span>
 <span class="tag">AIML</span>
-<span class="tag">Night Owl</span>
 </div>
 
 </div>
 
-<div class="card">
-<p>
-Fun fact:<br><br>
-If something is difficult, I’ll either:<br>
-1. Overthink it<br>
-2. Research it deeply<br>
-3. Eventually figure it out<br><br>
-
-Usually step 1 takes the longest.
-</p>
-</div>
-
-</section>
-
-<section>
-<h2>Profiles</h2>
-<div class="links">
-<a href="https://github.com/asaishivanand-design">GitHub</a>
-<a href="https://www.linkedin.com/in/a-sai-shivanand-9398b3321">LinkedIn</a>
-<a href="https://medium.com/@asaishivanand">Medium</a>
-<a href="https://huggingface.co/shivanand21">HuggingFace</a>
-<a href="https://leetcode.com/u/shivanand_appalla/">LeetCode</a>
-</div>
 </section>
 
 <section id="contact">
@@ -279,8 +240,14 @@ Usually step 1 takes the longest.
 </section>
 
 <footer>
-<p>© 2026 Shivanand • Built with consistency (not caffeine)</p>
+<p>© 2026 Shivanand • Built without caffeine</p>
 </footer>
+
+<script>
+function toggleMode() {
+    document.body.classList.toggle("dark");
+}
+</script>
 
 </body>
 </html>
