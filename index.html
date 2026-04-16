@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Shivanand | Portfolio</title>
+<title>Shivanand | AIML Portfolio</title>
+
 <style>
 body {
     margin: 0;
@@ -10,51 +11,57 @@ body {
     color: white;
 }
 
+/* NAVBAR */
+nav {
+    background: #1e293b;
+    padding: 15px;
+    text-align: center;
+}
+nav a {
+    margin: 0 15px;
+    color: #38bdf8;
+    text-decoration: none;
+}
+
 /* HERO */
 .hero {
     text-align: center;
     padding: 80px 20px;
 }
 .hero h1 {
-    font-size: 40px;
+    font-size: 42px;
 }
 .hero span {
     color: #38bdf8;
 }
-.btn {
-    padding: 10px 20px;
-    background: #38bdf8;
-    color: black;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
 
 /* SECTION */
 section {
-    padding: 40px;
+    padding: 50px;
+    max-width: 900px;
+    margin: auto;
 }
 h2 {
     color: #38bdf8;
 }
 
-/* PROJECTS */
-.project {
+/* CARD */
+.card {
     background: #1e293b;
-    padding: 15px;
+    padding: 20px;
     margin: 15px 0;
-    border-radius: 10px;
+    border-radius: 12px;
     transition: 0.3s;
 }
-.project:hover {
-    transform: scale(1.03);
+.card:hover {
+    transform: translateY(-5px);
 }
 
 /* LINKS */
 .links a {
     display: block;
     color: #38bdf8;
-    margin: 5px 0;
+    margin: 6px 0;
     text-decoration: none;
 }
 
@@ -65,33 +72,69 @@ footer {
     background: #1e293b;
 }
 </style>
+
 </head>
 
 <body>
 
+<!-- NAVBAR -->
+<nav>
+<a href="#">Home</a>
+<a href="#about">About</a>
+<a href="#experience">Experience</a>
+<a href="#projects">Projects</a>
+<a href="#vision">Vision</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<!-- HERO -->
 <div class="hero">
-    <h1>Hi, I'm <span>Shivanand</span></h1>
-    <p>AIML Student | Building Research Culture | Future Innovator</p>
+<h1>Hi, I'm <span>Shivanand</span></h1>
+<p>AIML Student | Research Driven | Building Tech Culture</p>
 </div>
 
-<section>
+<!-- ABOUT -->
+<section id="about">
 <h2>About Me</h2>
 <p>
-I am passionate about AI, research, and building impactful technology.
-I aim to create a strong research culture in my college and work on real-world problems.
+I am an AIML student focused on building real-world projects and contributing to research-driven environments.
+My goal is to grow into a strong researcher and create a research culture in my college.
 </p>
 </section>
 
-<section>
-<h2>Projects</h2>
+<!-- EXPERIENCE -->
+<section id="experience">
+<h2>Experience</h2>
 
-<div class="project">
-<h3>AI Steganography Detector</h3>
-<p>Detect hidden data in images using machine learning.</p>
+<div class="card">
+<h3>Singularity Lab</h3>
+<p><b>Member</b> | September 2025 – Present</p>
+<p>Part of Prajna Kritrima Lab (AIML Lab), actively learning and contributing to AI/ML initiatives and collaborative research culture.</p>
 </div>
 
 </section>
 
+<!-- PROJECTS -->
+<section id="projects">
+<h2>Projects</h2>
+
+<div class="card">
+<h3>AI Steganography Detector</h3>
+<p>Building a system to detect hidden data in images using machine learning techniques.</p>
+</div>
+
+</section>
+
+<!-- VISION -->
+<section id="vision">
+<h2>My Vision</h2>
+<p>
+I aim to build a strong research culture in my college similar to advanced labs,
+where students actively work on real-world problems, publish ideas, and collaborate on impactful innovations.
+</p>
+</section>
+
+<!-- PROFILES -->
 <section>
 <h2>Profiles</h2>
 <div class="links">
@@ -103,7 +146,8 @@ I aim to create a strong research culture in my college and work on real-world p
 </div>
 </section>
 
-<section>
+<!-- CONTACT -->
+<section id="contact">
 <h2>Contact</h2>
 <p>Email: asaishivanand@gmail.com</p>
 <p>Phone: 7995511950</p>
