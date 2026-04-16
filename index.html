@@ -9,6 +9,7 @@ body {
     font-family: Arial;
     background: #0f172a;
     color: white;
+    scroll-behavior: smooth;
 }
 
 /* NAVBAR */
@@ -33,6 +34,15 @@ nav a {
 }
 .hero span {
     color: #38bdf8;
+}
+.btn {
+    padding: 10px 20px;
+    background: #38bdf8;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
 }
 
 /* SECTION */
@@ -65,6 +75,17 @@ h2 {
     text-decoration: none;
 }
 
+/* ANIMATION */
+.fade {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: 1s;
+}
+.fade.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* FOOTER */
 footer {
     text-align: center;
@@ -91,10 +112,13 @@ footer {
 <div class="hero">
 <h1>Hi, I'm <span>Shivanand</span></h1>
 <p>AIML Student | Research Driven | Building Tech Culture</p>
+<button class="btn" onclick="document.getElementById('projects').scrollIntoView()">
+View My Work
+</button>
 </div>
 
 <!-- ABOUT -->
-<section id="about">
+<section id="about" class="fade">
 <h2>About Me</h2>
 <p>
 I am an AIML student focused on building real-world projects and contributing to research-driven environments.
@@ -103,7 +127,7 @@ My goal is to grow into a strong researcher and create a research culture in my 
 </section>
 
 <!-- EXPERIENCE -->
-<section id="experience">
+<section id="experience" class="fade">
 <h2>Experience</h2>
 
 <div class="card">
@@ -115,7 +139,7 @@ My goal is to grow into a strong researcher and create a research culture in my 
 </section>
 
 <!-- PROJECTS -->
-<section id="projects">
+<section id="projects" class="fade">
 <h2>Projects</h2>
 
 <div class="card">
@@ -126,7 +150,7 @@ My goal is to grow into a strong researcher and create a research culture in my 
 </section>
 
 <!-- VISION -->
-<section id="vision">
+<section id="vision" class="fade">
 <h2>My Vision</h2>
 <p>
 I aim to build a strong research culture in my college similar to advanced labs,
@@ -135,7 +159,7 @@ where students actively work on real-world problems, publish ideas, and collabor
 </section>
 
 <!-- PROFILES -->
-<section>
+<section class="fade">
 <h2>Profiles</h2>
 <div class="links">
 <a href="https://github.com/asaishivanand-design" target="_blank">GitHub</a>
@@ -147,15 +171,29 @@ where students actively work on real-world problems, publish ideas, and collabor
 </section>
 
 <!-- CONTACT -->
-<section id="contact">
+<section id="contact" class="fade">
 <h2>Contact</h2>
 <p>Email: asaishivanand@gmail.com</p>
-<p>Phone: 7995511950</p>
+<p>Phone: Available on request</p>
 </section>
 
 <footer>
 <p>© 2026 Shivanand</p>
 </footer>
+
+<!-- SCRIPT -->
+<script>
+const faders = document.querySelectorAll('.fade');
+
+window.addEventListener('scroll', () => {
+    faders.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if (top < window.innerHeight - 100) {
+            el.classList.add('show');
+        }
+    });
+});
+</script>
 
 </body>
 </html>
