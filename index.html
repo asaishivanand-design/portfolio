@@ -21,14 +21,14 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
     background: var(--bg);
     color: var(--text);
-    transition: 0.3s;
+    transition: 0.4s;
 }
 
 /* NAV */
 nav {
     position: sticky;
     top: 0;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(12px);
     padding: 15px;
     display: flex;
     justify-content: center;
@@ -57,19 +57,28 @@ nav a { text-decoration: none; color: var(--text); }
 
 /* SECTION */
 section {
-    max-width: 900px;
+    max-width: 1000px;
     margin: auto;
     padding: 80px 20px;
 }
 
+/* GRID */
+.grid {
+    display: grid;
+    gap: 20px;
+}
+
+/* CARD */
 .card {
     background: var(--card);
     padding: 20px;
     border-radius: 16px;
-    margin: 15px 0;
     transition: 0.3s;
 }
-.card:hover { transform: scale(1.02); }
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
 
 /* TIMELINE */
 .timeline {
@@ -90,12 +99,6 @@ section {
     border-radius: 50%;
 }
 
-/* LINKS */
-.links a {
-    display: block;
-    margin: 5px 0;
-}
-
 /* TAG */
 .tag {
     display: inline-block;
@@ -104,6 +107,17 @@ section {
     border-radius: 10px;
     margin: 5px;
     font-size: 12px;
+}
+
+/* FADE ANIMATION */
+.fade {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: all 0.8s ease;
+}
+.fade.show {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 footer {
@@ -135,135 +149,129 @@ footer {
 <p>Runs on curiosity. Not caffeine.</p>
 </div>
 
-<section id="about">
+<section id="about" class="fade">
 <h2>About</h2>
-<div class="card">
-<p>
-Focused on AIML, building real systems and understanding them deeply.<br><br>
-Prefers experimentation over memorization.<br><br>
-Also gets most ideas at 2AM for unknown reasons.
-</p>
+
+<div class="grid">
+<div class="card">Focused on AIML and real-world systems.</div>
+<div class="card">Prefers building over memorizing.</div>
+<div class="card">Ideas arrive after midnight 🌙</div>
+<div class="card">No caffeine. Still working somehow.</div>
 </div>
+
 </section>
 
-<section id="experience">
+<section id="experience" class="fade">
 <h2>Experience</h2>
-<div class="card">
-<h3>Singularity Lab — AIML Lab</h3>
-<p><b>Member • Sept 2025 – Present</b></p>
-<ul>
-<li>AI/ML exploration and discussions</li>
-<li>Hands-on learning beyond classrooms</li>
-<li>Collaborative problem solving</li>
-</ul>
-<p>Basically learning how things actually work.</p>
+
+<div class="grid">
+<div class="card"><b>Singularity Lab</b><br>AI/ML exploration</div>
+<div class="card"><b>Hackathon Core Team</b><br>Mission Schrodinger’s Cat</div>
+<div class="card"><b>AWS xCube</b><br>Hospitality Lead</div>
+<div class="card"><b>ACM Chapter</b><br>PR & Events</div>
 </div>
+
 </section>
 
-<section id="projects">
+<section id="projects" class="fade">
 <h2>Projects</h2>
 
+<div class="grid">
 <div class="card">
 <h3>AI Steganography Detector</h3>
 <p>
 Detect hidden data inside images using ML.<br><br>
-Because secrets inside pixels felt illegal.
+Focus: CNNs, robustness, real-world application.
 </p>
 <a href="https://github.com/asaishivanand-design">View Code →</a>
 </div>
 
+<div class="card">
+<h3>Research Paper</h3>
+<p>
+First paper on image steganography.<br>
+Small journal, but first step into research.
+</p>
+</div>
+
+<div class="card">
+<h3>Portfolio System</h3>
+<p>
+Building structured online presence.<br>
+(No more random GitHub dumps.)
+</p>
+</div>
+</div>
+
 </section>
 
-<section id="journey">
+<section id="journey" class="fade">
 <h2>Journey</h2>
 
 <div class="timeline">
 
 <div class="card">
-<h3>JEE Era</h3>
-<p>Full Srichaitanya training arc → didn’t crack JEE → SRM AP unlocked.</p>
+JEE arc → didn’t crack → SRM unlocked (character development).
 </div>
 
 <div class="card">
-<h3>Introvert → Upgrade</h3>
-<p>Went from silent to socially active. Now speaks fluent Telugu + Hindi (unexpected feature).</p>
+Introvert → started talking → now unexpectedly social.
 </div>
 
 <div class="card">
-<h3>Chaos Phase</h3>
-<p>AIML, Cybersec, Game Dev, IoT… touched everything, mastered nothing.</p>
+Chaos phase → explored everything, mastered nothing.
 </div>
 
 <div class="card">
-<h3>Procrastination Arc</h3>
-<p>Missed NTL because I didn’t submit task. Legendary mistake.</p>
+Missed NTL → procrastination wins 🏆
 </div>
 
 <div class="card">
-<h3>Getting Serious</h3>
-<p>Joined lab. Started doing actual work.</p>
+Joined lab → started doing actual work.
 </div>
 
 <div class="card">
-<h3>Execution Mode</h3>
-<p>Organized hackathons, handled guests, became “event guy”.</p>
+Organized hackathons → became “event guy”.
 </div>
 
 <div class="card">
-<h3>First Research</h3>
-<p>Published first paper (not big, but start matters).</p>
+First research paper → small, but start matters.
 </div>
 
 <div class="card">
-<h3>Now</h3>
-<p>Focused on AIML, projects, and research. Less chaos, more direction.</p>
+Now → focused AIML, building and improving.
 </div>
 
 </div>
 
 </section>
 
-<section id="blog">
+<section id="blog" class="fade">
 <h2>Blog / Thoughts</h2>
 
 <div class="card">
-<p>Read full blogs on Medium:</p>
-<a href="https://medium.com/@asaishivanand">→ Medium Profile</a>
+<a href="https://medium.com/@asaishivanand">→ Read on Medium</a>
 </div>
 
 <div class="card">
-<p>
-• Learning by building<br>
-• Hidden data detection<br>
-• 2AM ideas (still under verification)
-</p>
+Learning by building • Hidden data • 2AM ideas
 </div>
 
 </section>
 
-<section>
+<section class="fade">
 <h2>Life</h2>
 
-<div class="card">
-<p>
-🍜 Cooking (veg) — Maggie expert<br><br>
-🎌 Anime (1000+) — not casual anymore<br><br>
-📚 Manga reader<br><br>
-🌙 Night owl
-</p>
-
-<div>
-<span class="tag">Cooking</span>
-<span class="tag">Anime</span>
-<span class="tag">Manga</span>
-<span class="tag">AIML</span>
-</div>
-
+<div class="grid">
+<div class="card">🍜 Cooking (veg) — Maggie expert</div>
+<div class="card">🎌 Anime 1000+</div>
+<div class="card">📚 Manga reader</div>
+<div class="card">🌙 Night owl</div>
 </div>
 
 </section>
 
-<section id="contact">
+<section id="contact" class="fade">
 <h2>Contact</h2>
 <p>Email: asaishivanand@gmail.com</p>
 <p>Phone: Available on request</p>
@@ -277,6 +285,17 @@ Because secrets inside pixels felt illegal.
 function toggleMode() {
     document.body.classList.toggle("dark");
 }
+
+const faders = document.querySelectorAll('.fade');
+
+window.addEventListener('scroll', () => {
+    faders.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if (top < window.innerHeight - 100) {
+            el.classList.add('show');
+        }
+    });
+});
 </script>
 
 </body>
