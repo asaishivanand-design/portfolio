@@ -24,7 +24,7 @@ body {
     transition: 0.3s;
 }
 
-/* NAVBAR */
+/* NAV */
 nav {
     position: sticky;
     top: 0;
@@ -35,13 +35,8 @@ nav {
     gap: 25px;
     border-bottom: 1px solid #ccc;
 }
-nav a {
-    text-decoration: none;
-    color: var(--text);
-    font-size: 14px;
-}
+nav a { text-decoration: none; color: var(--text); }
 
-/* TOGGLE */
 .toggle {
     position: absolute;
     right: 20px;
@@ -57,22 +52,8 @@ nav a {
     width: 110px;
     border-radius: 50%;
 }
-.hero h1 {
-    font-size: 48px;
-}
-.hero p {
-    color: gray;
-}
-
-/* BUTTON */
-.btn {
-    padding: 10px 20px;
-    border-radius: 20px;
-    border: none;
-    background: black;
-    color: white;
-    cursor: pointer;
-}
+.hero h1 { font-size: 48px; }
+.hero p { color: gray; }
 
 /* SECTION */
 section {
@@ -80,14 +61,39 @@ section {
     margin: auto;
     padding: 80px 20px;
 }
-h2 { font-size: 22px; }
 
-/* CARD */
 .card {
     background: var(--card);
     padding: 20px;
     border-radius: 16px;
     margin: 15px 0;
+    transition: 0.3s;
+}
+.card:hover { transform: scale(1.02); }
+
+/* TIMELINE */
+.timeline {
+    border-left: 2px solid #38bdf8;
+    padding-left: 20px;
+}
+.timeline .card {
+    position: relative;
+}
+.timeline .card::before {
+    content: "";
+    position: absolute;
+    left: -28px;
+    top: 20px;
+    width: 12px;
+    height: 12px;
+    background: #38bdf8;
+    border-radius: 50%;
+}
+
+/* LINKS */
+.links a {
+    display: block;
+    margin: 5px 0;
 }
 
 /* TAG */
@@ -100,13 +106,6 @@ h2 { font-size: 22px; }
     font-size: 12px;
 }
 
-/* LINKS */
-.links a {
-    display: block;
-    margin: 5px 0;
-}
-
-/* FOOTER */
 footer {
     text-align: center;
     padding: 40px;
@@ -122,6 +121,7 @@ footer {
 <a href="#about">About</a>
 <a href="#experience">Experience</a>
 <a href="#projects">Projects</a>
+<a href="#journey">Journey</a>
 <a href="#blog">Blog</a>
 <a href="#contact">Contact</a>
 
@@ -132,42 +132,32 @@ footer {
 <img src="https://i.imgur.com/ZF6s192.png">
 <h1>Shivanand</h1>
 <p>AIML Student • Night Owl • Anime Guy</p>
-<p>No caffeine. Still working.</p>
+<p>Runs on curiosity. Not caffeine.</p>
 </div>
 
 <section id="about">
 <h2>About</h2>
-
 <div class="card">
 <p>
-I focus on building AI systems and understanding them deeply.<br><br>
-I prefer experimenting over memorizing.<br><br>
-Most of my thinking happens at night — surprisingly effective.
+Focused on AIML, building real systems and understanding them deeply.<br><br>
+Prefers experimentation over memorization.<br><br>
+Also gets most ideas at 2AM for unknown reasons.
 </p>
 </div>
-
 </section>
 
 <section id="experience">
 <h2>Experience</h2>
-
 <div class="card">
 <h3>Singularity Lab — AIML Lab</h3>
 <p><b>Member • Sept 2025 – Present</b></p>
-
 <ul>
-<li>Exploring AI/ML concepts beyond classroom learning</li>
-<li>Participating in technical discussions and idea building</li>
-<li>Working on real-world problem-solving approaches</li>
-<li>Collaborating with peers on implementations</li>
+<li>AI/ML exploration and discussions</li>
+<li>Hands-on learning beyond classrooms</li>
+<li>Collaborative problem solving</li>
 </ul>
-
-<p>
-Learning how actual systems work instead of just reading about them.
-</p>
-
+<p>Basically learning how things actually work.</p>
 </div>
-
 </section>
 
 <section id="projects">
@@ -176,36 +166,76 @@ Learning how actual systems work instead of just reading about them.
 <div class="card">
 <h3>AI Steganography Detector</h3>
 <p>
-Detect hidden data inside images using machine learning.<br><br>
-Currently exploring CNN models and robustness.
+Detect hidden data inside images using ML.<br><br>
+Because secrets inside pixels felt illegal.
 </p>
-
 <a href="https://github.com/asaishivanand-design">View Code →</a>
 </div>
 
 </section>
 
+<section id="journey">
+<h2>Journey</h2>
+
+<div class="timeline">
+
+<div class="card">
+<h3>JEE Era</h3>
+<p>Full Srichaitanya training arc → didn’t crack JEE → SRM AP unlocked.</p>
+</div>
+
+<div class="card">
+<h3>Introvert → Upgrade</h3>
+<p>Went from silent to socially active. Now speaks fluent Telugu + Hindi (unexpected feature).</p>
+</div>
+
+<div class="card">
+<h3>Chaos Phase</h3>
+<p>AIML, Cybersec, Game Dev, IoT… touched everything, mastered nothing.</p>
+</div>
+
+<div class="card">
+<h3>Procrastination Arc</h3>
+<p>Missed NTL because I didn’t submit task. Legendary mistake.</p>
+</div>
+
+<div class="card">
+<h3>Getting Serious</h3>
+<p>Joined lab. Started doing actual work.</p>
+</div>
+
+<div class="card">
+<h3>Execution Mode</h3>
+<p>Organized hackathons, handled guests, became “event guy”.</p>
+</div>
+
+<div class="card">
+<h3>First Research</h3>
+<p>Published first paper (not big, but start matters).</p>
+</div>
+
+<div class="card">
+<h3>Now</h3>
+<p>Focused on AIML, projects, and research. Less chaos, more direction.</p>
+</div>
+
+</div>
+
+</section>
+
 <section id="blog">
-<h2>Blog / Ideas</h2>
+<h2>Blog / Thoughts</h2>
 
 <div class="card">
-<h3>Why hidden data detection matters</h3>
-<p>
-Thinking about how data can be hidden in images and how AI can detect it.
-</p>
+<p>Read full blogs on Medium:</p>
+<a href="https://medium.com/@asaishivanand">→ Medium Profile</a>
 </div>
 
 <div class="card">
-<h3>Learning vs Building</h3>
 <p>
-Real learning starts when you build things, not when you just watch tutorials.
-</p>
-</div>
-
-<div class="card">
-<h3>2AM thoughts</h3>
-<p>
-Some of the best ideas come at night. Still verifying if they are genius or just sleep deprivation.
+• Learning by building<br>
+• Hidden data detection<br>
+• 2AM ideas (still under verification)
 </p>
 </div>
 
@@ -216,10 +246,10 @@ Some of the best ideas come at night. Still verifying if they are genius or just
 
 <div class="card">
 <p>
-🍜 Cooking (veg) — Maggie specialist<br><br>
+🍜 Cooking (veg) — Maggie expert<br><br>
 🎌 Anime (1000+) — not casual anymore<br><br>
 📚 Manga reader<br><br>
-🌙 Night owl — peak thinking hours
+🌙 Night owl
 </p>
 
 <div>
