@@ -6,15 +6,18 @@
 <style>
 body {
     margin: 0;
-    font-family: Arial;
-    background: #0f172a;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #0f172a, #020617);
     color: white;
     scroll-behavior: smooth;
 }
 
 /* NAVBAR */
 nav {
-    background: #1e293b;
+    position: sticky;
+    top: 0;
+    background: rgba(30, 41, 59, 0.7);
+    backdrop-filter: blur(10px);
     padding: 15px;
     text-align: center;
 }
@@ -22,32 +25,38 @@ nav a {
     margin: 0 15px;
     color: #38bdf8;
     text-decoration: none;
+    font-weight: bold;
 }
 
 /* HERO */
 .hero {
     text-align: center;
-    padding: 80px 20px;
+    padding: 100px 20px;
 }
 .hero h1 {
-    font-size: 42px;
+    font-size: 48px;
 }
 .hero span {
-    color: #38bdf8;
+    background: linear-gradient(90deg, #38bdf8, #818cf8);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+.hero p {
+    opacity: 0.8;
 }
 .btn {
-    padding: 10px 20px;
-    background: #38bdf8;
-    color: black;
+    margin-top: 20px;
+    padding: 12px 25px;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
+    background: linear-gradient(90deg, #38bdf8, #818cf8);
+    color: black;
     cursor: pointer;
-    margin-top: 15px;
 }
 
-/* SECTION */
+/* SECTIONS */
 section {
-    padding: 50px;
+    padding: 60px 20px;
     max-width: 900px;
     margin: auto;
 }
@@ -55,30 +64,32 @@ h2 {
     color: #38bdf8;
 }
 
-/* CARD */
+/* GLASS CARD */
 .card {
-    background: #1e293b;
+    background: rgba(30, 41, 59, 0.6);
+    backdrop-filter: blur(10px);
     padding: 20px;
-    margin: 15px 0;
-    border-radius: 12px;
+    margin: 20px 0;
+    border-radius: 15px;
     transition: 0.3s;
+    border: 1px solid rgba(255,255,255,0.1);
 }
 .card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px) scale(1.02);
 }
 
 /* LINKS */
 .links a {
     display: block;
+    margin: 8px 0;
     color: #38bdf8;
-    margin: 6px 0;
     text-decoration: none;
 }
 
 /* ANIMATION */
 .fade {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px);
     transition: 1s;
 }
 .fade.show {
@@ -90,7 +101,7 @@ h2 {
 footer {
     text-align: center;
     padding: 20px;
-    background: #1e293b;
+    background: rgba(30,41,59,0.7);
 }
 </style>
 
@@ -98,7 +109,6 @@ footer {
 
 <body>
 
-<!-- NAVBAR -->
 <nav>
 <a href="#">Home</a>
 <a href="#about">About</a>
@@ -108,37 +118,33 @@ footer {
 <a href="#contact">Contact</a>
 </nav>
 
-<!-- HERO -->
 <div class="hero">
 <h1>Hi, I'm <span>Shivanand</span></h1>
-<p>AIML Student | Research Driven | Building Tech Culture</p>
+<p>AIML Student | Research Driven | Building Future Tech Culture</p>
 <button class="btn" onclick="document.getElementById('projects').scrollIntoView()">
-View My Work
+Explore My Work
 </button>
 </div>
 
-<!-- ABOUT -->
 <section id="about" class="fade">
 <h2>About Me</h2>
 <p>
-I am an AIML student focused on building real-world projects and contributing to research-driven environments.
-My goal is to grow into a strong researcher and create a research culture in my college.
+I am an AIML student passionate about solving real-world problems using AI and building research-driven ecosystems.
+I aim to create a strong innovation and research culture in my college.
 </p>
 </section>
 
-<!-- EXPERIENCE -->
 <section id="experience" class="fade">
 <h2>Experience</h2>
 
 <div class="card">
 <h3>Singularity Lab</h3>
 <p><b>Member</b> | September 2025 – Present</p>
-<p>Part of Prajna Kritrima Lab (AIML Lab), actively learning and contributing to AI/ML initiatives and collaborative research culture.</p>
+<p>Part of Prajna Kritrima Lab (AIML Lab), contributing to AI/ML learning and collaborative research initiatives.</p>
 </div>
 
 </section>
 
-<!-- PROJECTS -->
 <section id="projects" class="fade">
 <h2>Projects</h2>
 
@@ -149,16 +155,14 @@ My goal is to grow into a strong researcher and create a research culture in my 
 
 </section>
 
-<!-- VISION -->
 <section id="vision" class="fade">
 <h2>My Vision</h2>
 <p>
-I aim to build a strong research culture in my college similar to advanced labs,
-where students actively work on real-world problems, publish ideas, and collaborate on impactful innovations.
+To build a strong research culture where students collaborate, innovate, and work on impactful real-world problems,
+similar to advanced labs like NTL and Singularity.
 </p>
 </section>
 
-<!-- PROFILES -->
 <section class="fade">
 <h2>Profiles</h2>
 <div class="links">
@@ -170,7 +174,6 @@ where students actively work on real-world problems, publish ideas, and collabor
 </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact" class="fade">
 <h2>Contact</h2>
 <p>Email: asaishivanand@gmail.com</p>
@@ -181,7 +184,6 @@ where students actively work on real-world problems, publish ideas, and collabor
 <p>© 2026 Shivanand</p>
 </footer>
 
-<!-- SCRIPT -->
 <script>
 const faders = document.querySelectorAll('.fade');
 
