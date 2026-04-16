@@ -55,19 +55,15 @@ nav a { text-decoration: none; color: var(--text); }
 .hero h1 { font-size: 48px; }
 .hero p { color: gray; }
 
-/* BUTTONS */
+/* BUTTON */
 .btn {
-    margin-top: 15px;
+    margin-top: 10px;
     padding: 10px 20px;
     border-radius: 20px;
     border: none;
     background: black;
     color: white;
     cursor: pointer;
-}
-.btn.secondary {
-    background: #38bdf8;
-    color: black;
 }
 
 /* SECTION */
@@ -80,6 +76,7 @@ section {
 /* GRID */
 .grid {
     display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
 }
 
@@ -88,11 +85,11 @@ section {
     background: var(--card);
     padding: 20px;
     border-radius: 16px;
-    transition: 0.3s;
+    transition: all 0.35s ease;
 }
 .card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
 }
 
 /* TIMELINE */
@@ -125,8 +122,8 @@ section {
 /* FADE */
 .fade {
     opacity: 0;
-    transform: translateY(25px);
-    transition: 0.8s;
+    transform: translateY(40px);
+    transition: all 1s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .fade.show {
     opacity: 1;
@@ -147,7 +144,9 @@ footer {
 <nav>
 <a href="#about">About</a>
 <a href="#experience">Experience</a>
+<a href="#labs">Labs</a>
 <a href="#projects">Projects</a>
+<a href="#research">Research</a>
 <a href="#journey">Journey</a>
 <a href="#contact">Contact</a>
 
@@ -173,8 +172,12 @@ footer {
 <div class="card">Focused on AIML and real-world systems.</div>
 <div class="card">Prefers building over memorizing.</div>
 <div class="card">Ideas arrive after midnight 🌙</div>
-<div class="card">No caffeine. Still working somehow.</div>
+<div class="card">No caffeine. Still functioning.</div>
 </div>
+
+<p style="opacity:0.7;">
+Building towards AI research and real-world problem solving.
+</p>
 
 </section>
 
@@ -190,25 +193,71 @@ footer {
 
 </section>
 
+<section id="labs" class="fade">
+<h2>Labs & Research</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>🏢 Singularity Lab</h3>
+<p>Student-driven innovation environment.</p>
+<ul>
+<li>AI/ML exploration</li>
+<li>Hands-on experimentation</li>
+<li>Collaborative work</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>🤖 Prajna Kritrima</h3>
+<p>AIML focused sub-lab.</p>
+<ul>
+<li>ML & DL concepts</li>
+<li>Model building</li>
+<li>Research thinking</li>
+</ul>
+</div>
+
+</div>
+
+</section>
+
 <section id="projects" class="fade">
 <h2>Projects</h2>
 
 <div class="grid">
 <div class="card">
 <h3>AI Steganography Detector</h3>
-<p>Detect hidden data inside images using ML.</p>
+<p>Detect hidden data in images using ML.</p>
 <a href="https://github.com/asaishivanand-design">View Code →</a>
 </div>
 
 <div class="card">
 <h3>Research Paper</h3>
-<p>First paper on steganography (starting point).</p>
+<p>First step into research.</p>
 </div>
 
 <div class="card">
 <h3>Portfolio System</h3>
-<p>Structured digital presence (no random repos).</p>
+<p>Structured digital presence.</p>
 </div>
+</div>
+
+</section>
+
+<section id="research" class="fade">
+<h2>Research</h2>
+
+<div class="card">
+<h3>🔬 Image Steganography Detection</h3>
+
+<div class="grid">
+<div class="card">CNN based approach</div>
+<div class="card">Cross dataset generalization</div>
+<div class="card">Robustness testing</div>
+<div class="card">Paper published</div>
+</div>
+
 </div>
 
 </section>
@@ -219,10 +268,10 @@ footer {
 <div class="timeline">
 <div class="card">JEE → didn’t crack → SRM unlocked</div>
 <div class="card">Introvert → social upgrade</div>
-<div class="card">Chaos → explored everything</div>
+<div class="card">Exploration phase chaos</div>
 <div class="card">Missed NTL → procrastination arc</div>
 <div class="card">Joined lab → real work begins</div>
-<div class="card">Hackathons + events</div>
+<div class="card">Hackathons & events</div>
 <div class="card">First research paper</div>
 <div class="card">Now → focused AIML</div>
 </div>
@@ -246,7 +295,7 @@ footer {
 <br>
 
 <a href="resume.pdf" download>
-<button class="btn secondary">Download Resume</button>
+<button class="btn">Download Resume</button>
 </a>
 
 </section>
@@ -262,14 +311,15 @@ function toggleMode() {
 
 const faders = document.querySelectorAll('.fade');
 
-window.addEventListener('scroll', () => {
-    faders.forEach(el => {
-        const top = el.getBoundingClientRect().top;
-        if (top < window.innerHeight - 100) {
-            el.classList.add('show');
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.classList.add('show');
         }
     });
-});
+}, { threshold: 0.15 });
+
+faders.forEach(el => observer.observe(el));
 </script>
 
 </body>
