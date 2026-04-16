@@ -1,45 +1,103 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Shivanand Portfolio</title>
+<title>Shivanand | Portfolio</title>
 <style>
-body { font-family: Arial; background: #0f172a; color: white; margin: 0; }
-header { text-align: center; padding: 40px; background: #1e293b; }
-section { padding: 20px; }
-h2 { color: #38bdf8; }
-.project { background: #1e293b; padding: 10px; margin: 10px 0; border-radius: 10px; }
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #0f172a;
+    color: white;
+}
+
+/* HERO */
+.hero {
+    text-align: center;
+    padding: 80px 20px;
+}
+.hero h1 {
+    font-size: 40px;
+}
+.hero span {
+    color: #38bdf8;
+}
+.btn {
+    padding: 10px 20px;
+    background: #38bdf8;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* SECTION */
+section {
+    padding: 40px;
+}
+h2 {
+    color: #38bdf8;
+}
+
+/* PROJECTS */
+.project {
+    background: #1e293b;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+.project:hover {
+    transform: scale(1.03);
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #1e293b;
+}
 </style>
 </head>
 
 <body>
 
-<header>
-<h1>Shivanand</h1>
-<p>AIML Student | Future Researcher</p>
-</header>
+<div class="hero">
+    <h1>Hi, I'm <span>Shivanand</span></h1>
+    <p>AIML Student | Building Research Culture | Future Innovator</p>
+    <button class="btn">View My Work</button>
+</div>
 
 <section>
-<h2>About</h2>
-<p>I am passionate about AI, research, and building impactful tech.</p>
+<h2>About Me</h2>
+<p>
+I am passionate about AI, research, and building impactful technology.
+I aim to create a strong research culture in my college and work on real-world problems.
+</p>
 </section>
 
 <section>
 <h2>Projects</h2>
+
 <div class="project">
 <h3>AI Steganography Detector</h3>
-<p>Detect hidden data in images using ML.</p>
+<p>Detect hidden data in images using machine learning.</p>
 </div>
+
+<div class="project">
+<h3>More Coming Soon</h3>
+<p>Working on exciting ideas...</p>
+</div>
+
 </section>
 
 <section>
 <h2>Skills</h2>
-<p>Python, C, ML, HTML</p>
+<p>Python, C, Machine Learning, HTML, CSS</p>
 </section>
 
-<section>
-<h2>Contact</h2>
-<p>Email: yourmail@gmail.com</p>
-</section>
+<footer>
+<p>Contact: yourmail@gmail.com</p>
+</footer>
 
 </body>
 </html>
