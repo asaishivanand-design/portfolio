@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Shivanand | AIML Portfolio</title>
+<title>Shivanand | AIML</title>
 
 <style>
 body {
     margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: #0f172a;
-    color: white;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #ffffff;
+    color: #111;
     scroll-behavior: smooth;
 }
 
@@ -16,99 +16,120 @@ body {
 nav {
     position: sticky;
     top: 0;
-    background: #1e293b;
+    background: rgba(255,255,255,0.8);
+    backdrop-filter: blur(10px);
     padding: 15px;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    border-bottom: 1px solid #eee;
 }
 nav a {
-    margin: 0 15px;
-    color: #38bdf8;
     text-decoration: none;
-    font-weight: bold;
+    color: #555;
+    font-size: 14px;
+}
+nav a:hover {
+    color: black;
 }
 
 /* HERO */
 .hero {
     text-align: center;
-    padding: 80px 20px;
+    padding: 100px 20px;
 }
 .hero img {
-    width: 120px;
+    width: 110px;
     border-radius: 50%;
-    border: 3px solid #38bdf8;
 }
-.hero h1 { font-size: 42px; }
-.hero span { color: #38bdf8; }
+.hero h1 {
+    font-size: 48px;
+    margin: 10px 0;
+}
+.hero p {
+    color: #666;
+    max-width: 500px;
+    margin: auto;
+}
+
+/* BUTTON */
+.btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    background: black;
+    color: white;
+    cursor: pointer;
+}
 
 /* SECTION */
 section {
-    padding: 60px 20px;
-    max-width: 1000px;
+    max-width: 900px;
     margin: auto;
+    padding: 80px 20px;
 }
-h2 { color: #38bdf8; }
+h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+}
 
 /* CARD */
 .card {
-    background: #1e293b;
+    background: #f8f8f8;
     padding: 20px;
-    margin: 20px 0;
-    border-radius: 12px;
+    border-radius: 16px;
+    margin: 15px 0;
     transition: 0.3s;
 }
 .card:hover {
-    transform: translateY(-5px);
+    transform: scale(1.02);
+}
+
+/* GRID */
+.grid {
+    display: grid;
+    gap: 20px;
 }
 
 /* IMAGE */
-.project-img {
+.card img {
     width: 100%;
-    border-radius: 10px;
+    border-radius: 12px;
     margin-top: 10px;
 }
 
-/* TAGS */
+/* TAG */
 .tag {
     display: inline-block;
-    background: #334155;
+    background: #eaeaea;
     padding: 5px 10px;
-    margin: 5px;
-    border-radius: 6px;
+    border-radius: 10px;
+    margin: 5px 5px 0 0;
     font-size: 12px;
 }
 
 /* LINKS */
 .links a {
     display: block;
-    margin: 6px 0;
-    color: #38bdf8;
+    color: black;
+    margin: 5px 0;
 }
 
-/* FADE */
-.fade {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: 1s;
-}
-.fade.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
+/* FOOTER */
 footer {
     text-align: center;
-    padding: 20px;
-    background: #1e293b;
+    padding: 40px;
+    color: #888;
 }
 </style>
+
 </head>
 
 <body>
 
 <nav>
-<a href="#">Home</a>
 <a href="#about">About</a>
-<a href="#experience">Experience</a>
 <a href="#projects">Projects</a>
 <a href="#life">Life</a>
 <a href="#contact">Contact</a>
@@ -116,101 +137,104 @@ footer {
 
 <div class="hero">
 <img src="https://i.imgur.com/ZF6s192.png">
-<h1>Hi, I'm <span>Shivanand</span></h1>
-<p>AIML Student | Research Oriented | Night Owl 🦉</p>
-<p>I don’t run on caffeine. I run on curiosity.</p>
+<h1>Shivanand</h1>
+
+<p>
+AIML student building things, overthinking occasionally,  
+and somehow still getting ideas at 2AM.
+</p>
+
+<p>
+Does not run on coffee.  
+Runs on curiosity, late nights, and random breakthroughs.
+</p>
+
+<button class="btn" onclick="document.getElementById('projects').scrollIntoView()">
+View Work
+</button>
 </div>
 
-<!-- ABOUT -->
-<section id="about" class="fade">
-<h2>About Me</h2>
+<section id="about">
+<h2>About</h2>
+
 <div class="card">
 <p>
-I am an AIML student focused on understanding systems deeply and building meaningful projects.<br><br>
+I’m focused on AI/ML and building systems that actually work in the real world.<br><br>
 
-I prefer learning by doing — experimenting, failing, and improving.<br><br>
-
-Goal: Become someone who can build impactful AI systems and contribute to real-world problem solving.
-</p>
-</div>
-</section>
-
-<!-- EXPERIENCE -->
-<section id="experience" class="fade">
-<h2>Experience</h2>
-
-<div class="card">
-<h3>Singularity Lab — AIML Lab (Prajna Kritrima)</h3>
-<p><b>Member | Sept 2025 – Present</b></p>
-
+I prefer:
 <ul>
-<li>Participating in AI/ML exploration and experimentation</li>
-<li>Engaging in research discussions and idea validation</li>
-<li>Working on problem-solving and implementation-based learning</li>
-<li>Collaborating with peers on technical development</li>
+<li>Experimentation over memorization</li>
+<li>Understanding over shortcuts</li>
+<li>Building over just watching tutorials</li>
 </ul>
 
-<p><i>Basically learning how real tech actually works beyond classrooms.</i></p>
+Also:
+<ul>
+<li>No caffeine. Still functioning.</li>
+<li>Most thinking happens at night.</li>
+<li>Yes, I will randomly get ideas at 3AM.</li>
+</ul>
+</p>
+</div>
 
-<img class="project-img" src="https://i.imgur.com/8Km9tLL.jpg">
+<div class="card">
+<p>
+Current mission:<br><br>
+→ Become really good at AIML  
+→ Build projects that are actually useful  
+→ Not become “just another resume”
+</p>
 </div>
 
 </section>
 
-<!-- PROJECTS -->
-<section id="projects" class="fade">
+<section id="projects">
 <h2>Projects</h2>
+
+<div class="grid">
 
 <div class="card">
 <h3>AI Steganography Detector</h3>
 
 <p>
-Building a system to detect hidden information in images using machine learning and deep learning.<br><br>
-
-Exploring:
-<ul>
-<li>CNN-based detection</li>
-<li>Cross-dataset generalization</li>
-<li>Robustness against compression & distortions</li>
-</ul>
-
-Goal: Move towards research-level implementation.
+Detect hidden data in images using ML.<br><br>
+Because apparently images can have secrets… and I don’t like secrets.
 </p>
 
-<a href="https://github.com/asaishivanand-design" target="_blank">
-→ View Code
-</a>
+<a href="https://github.com/asaishivanand-design">View Code →</a>
 
-<img class="project-img" src="https://i.imgur.com/Z7AzH2c.png">
+<img src="https://i.imgur.com/Z7AzH2c.png">
 </div>
 
 <div class="card">
-<h3>Portfolio & GitHub Development</h3>
+<h3>Portfolio & GitHub</h3>
 
 <p>
-Building a structured technical presence with clear documentation and project visibility.<br><br>
-
-Trying to not make it look like “random repos uploaded at 3AM”.
+Trying to maintain a clean technical presence.<br><br>
+Translation: not dumping random code at 3AM anymore.
 </p>
+
+</div>
 
 </div>
 
 </section>
 
-<!-- LIFE -->
-<section id="life" class="fade">
-<h2>Beyond Code</h2>
+<section id="life">
+<h2>Life (Outside Code)</h2>
 
 <div class="card">
 <p>
-🍜 Cooking: Can cook almost anything veg. Maggie is elite.<br><br>
+🍜 Cooking — can cook almost anything veg  
+(Maggie is optimized to perfection)<br><br>
 
-🌙 Night owl — peak thinking happens when everyone else sleeps.<br><br>
+🎌 Anime — 1000+ watched  
+This is no longer a hobby. It’s a parallel life.<br><br>
 
-🎌 Anime: 1000+ watched. Manga reader too.<br>
-(Yes, this is serious dedication.)<br><br>
+📚 Manga reader — because waiting for anime is pain<br><br>
 
-🧠 AIML is my main focus — everything else supports it.
+🌙 Night owl — brain works better after midnight  
+(Not sure why, but we accept it)
 </p>
 
 <div>
@@ -223,10 +247,21 @@ Trying to not make it look like “random repos uploaded at 3AM”.
 
 </div>
 
+<div class="card">
+<p>
+Fun fact:<br><br>
+If something is difficult, I’ll either:<br>
+1. Overthink it<br>
+2. Research it deeply<br>
+3. Eventually figure it out<br><br>
+
+Usually step 1 takes the longest.
+</p>
+</div>
+
 </section>
 
-<!-- LINKS -->
-<section class="fade">
+<section>
 <h2>Profiles</h2>
 <div class="links">
 <a href="https://github.com/asaishivanand-design">GitHub</a>
@@ -237,29 +272,15 @@ Trying to not make it look like “random repos uploaded at 3AM”.
 </div>
 </section>
 
-<!-- CONTACT -->
-<section id="contact" class="fade">
+<section id="contact">
 <h2>Contact</h2>
 <p>Email: asaishivanand@gmail.com</p>
 <p>Phone: Available on request</p>
 </section>
 
 <footer>
-<p>© 2026 Shivanand | Built with curiosity, consistency & late nights</p>
+<p>© 2026 Shivanand • Built with consistency (not caffeine)</p>
 </footer>
-
-<script>
-const faders = document.querySelectorAll('.fade');
-
-window.addEventListener('scroll', () => {
-    faders.forEach(el => {
-        const top = el.getBoundingClientRect().top;
-        if (top < window.innerHeight - 100) {
-            el.classList.add('show');
-        }
-    });
-});
-</script>
 
 </body>
 </html>
