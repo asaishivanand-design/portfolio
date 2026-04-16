@@ -21,6 +21,7 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
     background: var(--bg);
     color: var(--text);
+    transition: 0.4s;
 }
 
 /* NAV */
@@ -35,6 +36,12 @@ nav {
 }
 nav a { text-decoration: none; color: var(--text); }
 
+.toggle {
+    position: absolute;
+    right: 20px;
+    cursor: pointer;
+}
+
 /* HERO */
 .hero {
     text-align: center;
@@ -46,14 +53,49 @@ nav a { text-decoration: none; color: var(--text); }
     border: 3px solid #38bdf8;
 }
 
-/* BUTTONS */
+/* BUTTON */
 .btn {
+    margin-top: 10px;
     padding: 10px 20px;
     border-radius: 20px;
+    border: none;
     background: black;
     color: white;
-    border: none;
-    margin-top: 10px;
+}
+
+/* GRID */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* CARD */
+.card {
+    background: var(--card);
+    padding: 20px;
+    border-radius: 16px;
+    transition: all 0.4s cubic-bezier(0.16,1,0.3,1);
+}
+.card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+/* TIMELINE */
+.timeline {
+    border-left: 2px solid #38bdf8;
+    padding-left: 20px;
+}
+.timeline .card::before {
+    content: "";
+    position: absolute;
+    left: -28px;
+    top: 20px;
+    width: 12px;
+    height: 12px;
+    background: #38bdf8;
+    border-radius: 50%;
 }
 
 /* SOCIAL BUTTONS */
@@ -76,32 +118,24 @@ nav a { text-decoration: none; color: var(--text); }
     color: black;
 }
 
-/* SECTION */
-section {
-    max-width: 900px;
-    margin: auto;
-    padding: 80px 20px;
-}
-
-/* CARD */
-.card {
-    background: var(--card);
-    padding: 20px;
-    border-radius: 16px;
-    margin: 15px 0;
-}
-
 /* ANIMATION */
 .fade {
     opacity: 0;
-    transform: translateY(40px);
+    transform: translateY(50px);
     transition: 1s;
 }
 .fade.show {
     opacity: 1;
     transform: translateY(0);
 }
+
+section {
+    max-width: 1000px;
+    margin: auto;
+    padding: 80px 20px;
+}
 </style>
+
 </head>
 
 <body>
@@ -112,6 +146,7 @@ section {
 <a href="#journey">Journey</a>
 <a href="#aboutme">About Me</a>
 <a href="#contact">Contact</a>
+<span class="toggle" onclick="toggleMode()">🌙</span>
 </nav>
 
 <div class="hero">
@@ -124,123 +159,131 @@ section {
 </a>
 </div>
 
+<!-- ABOUT -->
 <section id="about" class="fade">
 <h2>About</h2>
-
-<div class="card">
-<p>
-I am currently focused on Artificial Intelligence and Machine Learning,
-with a strong interest in understanding systems deeply rather than just learning theory.
-</p>
-
-<p>
-My goal is to move towards research-oriented thinking, where I can build,
-analyze, and improve real-world AI systems instead of just implementing existing ideas.
-</p>
+<div class="grid">
+<div class="card">Focused on AIML and building real systems.</div>
+<div class="card">Prefers understanding over memorizing.</div>
+<div class="card">Ideas mostly arrive after midnight 🌙</div>
+<div class="card">No caffeine. Still functioning (somehow).</div>
 </div>
-
 </section>
 
+<!-- LABS -->
 <section id="labs" class="fade">
-<h2>Labs & Research</h2>
+<h2>Labs</h2>
+
+<div class="grid">
 
 <div class="card">
-<h3>Singularity Lab</h3>
-
+<h3>🏢 Singularity Lab</h3>
 <p>
-Singularity Lab is a student-driven innovation space where learning goes beyond classrooms.
-It focuses on experimentation, collaboration, and building systems rather than just studying concepts.
+A place where theory gets tested in reality.<br><br>
+It’s not just about learning concepts, but actually trying things out,
+breaking them, fixing them, and learning in the process.
 </p>
-
-<p>
-Being part of this lab exposed me to a more practical and research-oriented environment,
-where ideas are discussed, tested, and sometimes fail — which is an important part of learning.
-</p>
-
 </div>
 
 <div class="card">
-<h3>Prajna Kritrima (AIML Lab)</h3>
-
+<h3>🤖 Prajna Kritrima</h3>
 <p>
-This is the AI/ML-focused sub-lab where the focus shifts from general exploration
-to domain-specific understanding.
+AIML-focused sub-lab where I started shifting from random exploration
+to actually understanding and building systems.
 </p>
-
-<p>
-Here, I work on building foundational understanding in machine learning,
-exploring models, and gradually moving toward research-based thinking.
-</p>
+</div>
 
 </div>
 
 </section>
 
+<!-- JOURNEY -->
 <section id="journey" class="fade">
 <h2>Journey</h2>
 
+<div class="timeline">
+
 <div class="card">
-<p>
-My journey started with a strong focus on JEE preparation throughout school.
-Like many, I had expectations of entering top institutes, but things did not go as planned.
-</p>
+Started with JEE prep → didn’t crack.<br>
+Reality hit early.
+</div>
 
-<p>
-After not achieving that goal, I joined SRM University AP, which turned out to be a turning point.
-Instead of being stuck, I started exploring new directions.
-</p>
+<div class="card">
+Joined SRM → decided to change approach.<br>
+Started talking to people, improving socially.
+</div>
 
-<p>
-In my first semester, I explored multiple domains — AI/ML, cybersecurity, game development, and IoT.
-While this gave me exposure, it also showed me that I lacked depth.
-</p>
+<div class="card">
+Exploration phase → AIML, cybersec, everything.<br>
+Basically chaos but useful.
+</div>
 
-<p>
-Over time, I realized the importance of focus and consistency.
-Joining Singularity Lab helped me shift from random exploration to structured learning.
-</p>
+<div class="card">
+Joined lab → first time things felt structured.<br>
+Started taking things seriously.
+</div>
 
-<p>
-Now, I am focusing on AIML, building projects, and moving towards research,
-with a clearer direction than before.
-</p>
+<div class="card">
+Built projects, worked in events, wrote research paper.<br>
+Small step but important.
+</div>
+
+<div class="card">
+Now → focusing on AIML and consistency.<br>
+Still learning, but direction is clear.
+</div>
 
 </div>
 
 </section>
 
+<!-- ABOUT ME -->
 <section id="aboutme" class="fade">
 <h2>About Me</h2>
 
+<div class="grid">
+
 <div class="card">
+<h3>🍜 Cooking</h3>
 <p>
-Outside of academics, I enjoy cooking (especially vegetarian dishes),
-and I can confidently say I’ve optimized making Maggie.
+Can cook almost anything veg.<br>
+Maggie = mastered.<br>
+Backup life plan secured.
 </p>
+</div>
 
+<div class="card">
+<h3>🎌 Anime</h3>
 <p>
-I am also deeply into anime, manga, and manhwa — having watched over 1000+ anime.
-At this point, it’s not just entertainment but something I genuinely enjoy analyzing.
+1000+ anime watched.<br>
+At this point, it's part of identity.
 </p>
+</div>
 
+<div class="card">
+<h3>😂 Self Roast</h3>
 <p>
-I tend to overthink a lot, and sometimes I spend more time planning than executing.
-There is also a tendency towards laziness — or what I prefer to call “energy optimization”.
+Overthinks everything.<br>
+Plans a lot.<br>
+Executes… improving.
 </p>
+</div>
 
+<div class="card">
+<h3>😴 Laziness</h3>
 <p>
-However, I am actively working on improving consistency and execution,
-which I believe is the most important skill I need to develop right now.
+Not lazy… just energy efficient.<br>
+Sometimes too efficient.
 </p>
+</div>
 
 </div>
 
 </section>
 
+<!-- CONTACT -->
 <section id="contact" class="fade">
 <h2>Contact</h2>
-
-<p>Email: asaishivanand@gmail.com</p>
 
 <div class="socials">
 <a href="https://github.com/asaishivanand-design">GitHub</a>
@@ -253,6 +296,10 @@ which I believe is the most important skill I need to develop right now.
 </section>
 
 <script>
+function toggleMode() {
+    document.body.classList.toggle("dark");
+}
+
 const elements = document.querySelectorAll('.fade');
 const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
