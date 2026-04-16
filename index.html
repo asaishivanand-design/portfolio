@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Shivanand | AIML Portfolio</title>
+<title>Shivanand | System</title>
 
 <style>
 body {
     margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg, #020617, #0f172a);
-    color: white;
+    font-family: 'Courier New', monospace;
+    background: black;
+    color: #00ff9f;
     scroll-behavior: smooth;
 }
 
@@ -16,89 +16,93 @@ body {
 nav {
     position: sticky;
     top: 0;
-    background: rgba(30, 41, 59, 0.6);
-    backdrop-filter: blur(12px);
+    background: black;
     padding: 15px;
     text-align: center;
+    border-bottom: 1px solid #00ff9f;
 }
 nav a {
     margin: 0 15px;
-    color: #38bdf8;
+    color: #00ff9f;
     text-decoration: none;
-    font-weight: bold;
 }
 
 /* HERO */
 .hero {
     text-align: center;
-    padding: 90px 20px;
+    padding: 80px 20px;
 }
 .avatar {
-    width: 130px;
+    width: 120px;
     border-radius: 50%;
-    border: 3px solid #38bdf8;
-    box-shadow: 0 0 20px #38bdf8;
+    border: 2px solid #00ff9f;
+    box-shadow: 0 0 20px #00ff9f;
 }
 .hero h1 {
-    font-size: 48px;
+    font-size: 42px;
 }
-.hero span {
-    background: linear-gradient(90deg, #38bdf8, #818cf8);
-    -webkit-background-clip: text;
-    color: transparent;
+.typing {
+    border-right: 2px solid #00ff9f;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing 4s steps(30), blink 0.5s infinite alternate;
 }
-.btn {
-    margin-top: 20px;
-    padding: 12px 25px;
-    border-radius: 8px;
-    border: none;
-    background: linear-gradient(90deg, #38bdf8, #818cf8);
-    cursor: pointer;
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+@keyframes blink {
+    50% { border-color: transparent }
 }
 
 /* SECTION */
 section {
-    padding: 60px 20px;
+    padding: 50px 20px;
     max-width: 900px;
     margin: auto;
 }
 h2 {
-    color: #38bdf8;
+    color: #00ff9f;
 }
 
-/* CARD */
+/* TERMINAL CARD */
 .card {
-    background: rgba(30, 41, 59, 0.6);
-    backdrop-filter: blur(12px);
+    background: #020617;
+    border: 1px solid #00ff9f;
     padding: 20px;
     margin: 20px 0;
-    border-radius: 15px;
-    transition: 0.3s;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #00ff9f;
 }
 .card:hover {
-    transform: translateY(-10px) scale(1.02);
+    transform: scale(1.02);
 }
 
-/* PROJECT BUTTONS */
-.project-links a {
-    display: inline-block;
-    margin: 10px 10px 0 0;
-    padding: 8px 12px;
-    border-radius: 6px;
-    background: #38bdf8;
-    color: black;
-    text-decoration: none;
-    font-size: 14px;
+/* BUTTON */
+.btn {
+    padding: 10px 20px;
+    background: black;
+    border: 1px solid #00ff9f;
+    color: #00ff9f;
+    cursor: pointer;
 }
 
 /* LINKS */
 .links a {
     display: block;
     margin: 6px 0;
-    color: #38bdf8;
+    color: #00ff9f;
 }
 
-/* ANIMATION */
+/* MATRIX BG */
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+/* FADE */
 .fade {
     opacity: 0;
     transform: translateY(30px);
@@ -112,7 +116,7 @@ h2 {
 footer {
     text-align: center;
     padding: 20px;
-    background: rgba(30,41,59,0.7);
+    border-top: 1px solid #00ff9f;
 }
 </style>
 
@@ -120,92 +124,105 @@ footer {
 
 <body>
 
+<canvas id="matrix"></canvas>
+
 <nav>
-<a href="#">Home</a>
-<a href="#about">About</a>
-<a href="#projects">Projects</a>
-<a href="#vision">Vision</a>
-<a href="#contact">Contact</a>
+<a href="#">root</a>
+<a href="#about">about</a>
+<a href="#projects">projects</a>
+<a href="#contact">contact</a>
 </nav>
 
 <div class="hero">
 <img class="avatar" src="https://i.imgur.com/ZF6s192.png">
-<h1>Hi, I'm <span>Shivanand</span></h1>
-<p>AIML Student | Building Cool Stuff | Slightly Unstable Genius 😵‍💫</p>
+
+<h1 class="typing">Shivanand.exe</h1>
+<p>> AIML student initializing...</p>
+<p>> status: building something dangerous 🚀</p>
+
 <button class="btn" onclick="document.getElementById('projects').scrollIntoView()">
-Enter My Projects 🚀
+Access Projects
 </button>
 </div>
 
 <section id="about" class="fade">
-<h2>About Me</h2>
+<h2>> about_me</h2>
+<div class="card">
 <p>
-I build things when I'm curious… and overthink when I'm not.<br><br>
-Currently exploring AI, real-world problems, and how far I can push myself.<br><br>
-Trying to turn ideas into something actually useful (and not just another GitHub repo).
+I explore systems, break assumptions, and build things from scratch.<br><br>
+Currently focused on AI, hidden data detection, and real-world problem solving.<br><br>
+Not here to follow the path — here to create one.
 </p>
+</div>
 </section>
 
 <section id="projects" class="fade">
-<h2>Projects</h2>
+<h2>> projects</h2>
 
 <div class="card">
 <h3>AI Steganography Detector</h3>
 <p>
 Detect hidden data inside images using ML.<br>
-Because secrets inside pixels felt illegal.
+Because nothing should stay hidden forever.
 </p>
 
-<div class="project-links">
-<a href="https://github.com/asaishivanand-design" target="_blank">GitHub</a>
-<a href="#">Live Demo (coming soon)</a>
+<p>> status: in development...</p>
+
+<a href="https://github.com/asaishivanand-design" target="_blank">
+[ View Source Code ]
+</a>
 </div>
 
-</div>
-
-<div class="card">
-<h3>Upcoming Projects</h3>
-<p>
-Working on more AI + real-world problem solving projects.<br>
-Stay tuned… or don’t… but you’ll miss something cool 😎
-</p>
-</div>
-
-</section>
-
-<section id="vision" class="fade">
-<h2>My Vision</h2>
-<p>
-I want to become someone who doesn't just learn technology,
-but actually builds things that matter.<br><br>
-
-Not chasing marks, not chasing hype —
-just trying to get better every single day and create something meaningful.
-</p>
-</section>
-
-<section class="fade">
-<h2>Find Me Online</h2>
-<div class="links">
-<a href="https://github.com/asaishivanand-design" target="_blank">GitHub</a>
-<a href="https://www.linkedin.com/in/a-sai-shivanand-9398b3321" target="_blank">LinkedIn</a>
-<a href="https://medium.com/@asaishivanand" target="_blank">Medium</a>
-<a href="https://huggingface.co/shivanand21" target="_blank">HuggingFace</a>
-<a href="https://leetcode.com/u/shivanand_appalla/" target="_blank">LeetCode</a>
-</div>
 </section>
 
 <section id="contact" class="fade">
-<h2>Contact</h2>
+<h2>> contact</h2>
+<div class="card">
 <p>Email: asaishivanand@gmail.com</p>
-<p>Phone: Available on request 😎</p>
+<p>Phone: Access Restricted 🔒</p>
+</div>
 </section>
 
 <footer>
-<p>© 2026 Shivanand | Built with curiosity + chaos ⚡</p>
+<p>system.out.println("Built by Shivanand");</p>
 </footer>
 
 <script>
+// MATRIX EFFECT
+const canvas = document.getElementById("matrix");
+const ctx = canvas.getContext("2d");
+
+canvas.height = window.innerHeight;
+canvas.width = window.innerWidth;
+
+const letters = "01";
+const fontSize = 14;
+const columns = canvas.width / fontSize;
+
+const drops = [];
+for(let i=0;i<columns;i++) drops[i]=1;
+
+function draw(){
+    ctx.fillStyle = "rgba(0,0,0,0.05)";
+    ctx.fillRect(0,0,canvas.width,canvas.height);
+
+    ctx.fillStyle = "#00ff9f";
+    ctx.font = fontSize+"px monospace";
+
+    for(let i=0;i<drops.length;i++){
+        const text = letters[Math.floor(Math.random()*letters.length)];
+        ctx.fillText(text,i*fontSize,drops[i]*fontSize);
+
+        if(drops[i]*fontSize > canvas.height && Math.random()>0.975)
+            drops[i]=0;
+
+        drops[i]++;
+    }
+}
+
+setInterval(draw, 33);
+
+// FADE
 const faders = document.querySelectorAll('.fade');
 
 window.addEventListener('scroll', () => {
