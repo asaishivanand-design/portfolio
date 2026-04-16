@@ -31,7 +31,12 @@ nav a {
 /* HERO */
 .hero {
     text-align: center;
-    padding: 100px 20px;
+    padding: 80px 20px;
+}
+.hero img {
+    width: 120px;
+    border-radius: 50%;
+    margin-bottom: 15px;
 }
 .hero h1 {
     font-size: 48px;
@@ -54,7 +59,7 @@ nav a {
     cursor: pointer;
 }
 
-/* SECTIONS */
+/* SECTION */
 section {
     padding: 60px 20px;
     max-width: 900px;
@@ -64,7 +69,7 @@ h2 {
     color: #38bdf8;
 }
 
-/* GLASS CARD */
+/* CARD */
 .card {
     background: rgba(30, 41, 59, 0.6);
     backdrop-filter: blur(10px);
@@ -72,7 +77,6 @@ h2 {
     margin: 20px 0;
     border-radius: 15px;
     transition: 0.3s;
-    border: 1px solid rgba(255,255,255,0.1);
 }
 .card:hover {
     transform: translateY(-8px) scale(1.02);
@@ -85,6 +89,14 @@ h2 {
     color: #38bdf8;
     text-decoration: none;
 }
+
+/* ANIME STICKERS */
+.sticker {
+    width: 80px;
+    position: absolute;
+}
+.sticker1 { top: 120px; left: 20px; }
+.sticker2 { top: 300px; right: 20px; }
 
 /* ANIMATION */
 .fade {
@@ -109,62 +121,81 @@ footer {
 
 <body>
 
+<!-- NAVBAR -->
 <nav>
 <a href="#">Home</a>
 <a href="#about">About</a>
-<a href="#experience">Experience</a>
 <a href="#projects">Projects</a>
-<a href="#vision">Vision</a>
 <a href="#contact">Contact</a>
 </nav>
 
+<!-- HERO -->
 <div class="hero">
+<img src="https://i.imgur.com/6VBx3io.png" alt="profile">
 <h1>Hi, I'm <span>Shivanand</span></h1>
-<p>AIML Student | Research Driven | Building Future Tech Culture</p>
+<p>AIML Student | Future Researcher | Occasional Overthinker 😵‍💫</p>
+<p>Trying to build cool stuff and survive engineering at the same time.</p>
 <button class="btn" onclick="document.getElementById('projects').scrollIntoView()">
-Explore My Work
+See What I'm Cooking 🍳
 </button>
 </div>
 
+<!-- ANIME STICKERS -->
+<img src="https://i.imgur.com/Wb1qfhK.png" class="sticker sticker1">
+<img src="https://i.imgur.com/jTqXK9T.png" class="sticker sticker2">
+
+<!-- ABOUT -->
 <section id="about" class="fade">
 <h2>About Me</h2>
 <p>
-I am an AIML student passionate about solving real-world problems using AI and building research-driven ecosystems.
-I aim to create a strong innovation and research culture in my college.
+I'm an AIML student trying to turn caffeine into code ☕💻.<br><br>
+Currently exploring AI, research, and how to not panic before exams.<br><br>
+Long-term goal: build a strong research culture in my college and create things that actually matter.
 </p>
 </section>
 
-<section id="experience" class="fade">
+<!-- EXPERIENCE -->
+<section class="fade">
 <h2>Experience</h2>
 
 <div class="card">
 <h3>Singularity Lab</h3>
 <p><b>Member</b> | September 2025 – Present</p>
-<p>Part of Prajna Kritrima Lab (AIML Lab), contributing to AI/ML learning and collaborative research initiatives.</p>
+<p>
+Working in Prajna Kritrima Lab (AIML Lab).  
+Learning, experimenting, and pretending I understand everything (I will eventually 😤).
+</p>
 </div>
 
 </section>
 
+<!-- PROJECTS -->
 <section id="projects" class="fade">
 <h2>Projects</h2>
 
 <div class="card">
 <h3>AI Steganography Detector</h3>
-<p>Building a system to detect hidden data in images using machine learning techniques.</p>
+<p>
+Detect hidden data in images using ML.<br>
+Because apparently images can have secrets… and I don’t like secrets.
+</p>
 </div>
 
 </section>
 
-<section id="vision" class="fade">
+<!-- VISION -->
+<section class="fade">
 <h2>My Vision</h2>
 <p>
-To build a strong research culture where students collaborate, innovate, and work on impactful real-world problems,
-similar to advanced labs like NTL and Singularity.
+I want to build a culture where students don't just study for exams,
+but actually build, research, and innovate.<br><br>
+Basically… less mugging, more creating 🚀
 </p>
 </section>
 
+<!-- PROFILES -->
 <section class="fade">
-<h2>Profiles</h2>
+<h2>Find Me Online</h2>
 <div class="links">
 <a href="https://github.com/asaishivanand-design" target="_blank">GitHub</a>
 <a href="https://www.linkedin.com/in/a-sai-shivanand-9398b3321" target="_blank">LinkedIn</a>
@@ -174,14 +205,15 @@ similar to advanced labs like NTL and Singularity.
 </div>
 </section>
 
+<!-- CONTACT -->
 <section id="contact" class="fade">
 <h2>Contact</h2>
 <p>Email: asaishivanand@gmail.com</p>
-<p>Phone: Available on request</p>
+<p>Phone: Available on request (I don’t give it that easily 😎)</p>
 </section>
 
 <footer>
-<p>© 2026 Shivanand</p>
+<p>© 2026 Shivanand | Built with sleep deprivation 😴</p>
 </footer>
 
 <script>
