@@ -21,7 +21,6 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
     background: var(--bg);
     color: var(--text);
-    transition: 0.4s;
 }
 
 /* NAV */
@@ -36,12 +35,6 @@ nav {
 }
 nav a { text-decoration: none; color: var(--text); }
 
-.toggle {
-    position: absolute;
-    right: 20px;
-    cursor: pointer;
-}
-
 /* HERO */
 .hero {
     text-align: center;
@@ -52,32 +45,42 @@ nav a { text-decoration: none; color: var(--text); }
     border-radius: 50%;
     border: 3px solid #38bdf8;
 }
-.hero h1 { font-size: 48px; }
-.hero p { color: gray; }
 
-/* BUTTON */
+/* BUTTONS */
 .btn {
-    margin-top: 10px;
     padding: 10px 20px;
     border-radius: 20px;
-    border: none;
     background: black;
     color: white;
-    cursor: pointer;
+    border: none;
+    margin-top: 10px;
+}
+
+/* SOCIAL BUTTONS */
+.socials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.socials a {
+    padding: 10px 15px;
+    border-radius: 12px;
+    background: var(--card);
+    text-decoration: none;
+    color: var(--text);
+    transition: 0.3s;
+}
+.socials a:hover {
+    transform: translateY(-5px);
+    background: #38bdf8;
+    color: black;
 }
 
 /* SECTION */
 section {
-    max-width: 1000px;
+    max-width: 900px;
     margin: auto;
     padding: 80px 20px;
-}
-
-/* GRID */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
 }
 
 /* CARD */
@@ -85,78 +88,18 @@ section {
     background: var(--card);
     padding: 20px;
     border-radius: 16px;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.card:hover {
-    transform: translateY(-12px) scale(1.03);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.1);
-}
-
-/* TIMELINE */
-.timeline {
-    border-left: 2px solid #38bdf8;
-    padding-left: 20px;
-}
-.timeline .card::before {
-    content: "";
-    position: absolute;
-    left: -28px;
-    top: 20px;
-    width: 12px;
-    height: 12px;
-    background: #38bdf8;
-    border-radius: 50%;
-}
-
-/* FUN */
-.fun { position: relative; }
-.stat {
-    display: block;
-    margin-top: 10px;
-    font-size: 12px;
-    opacity: 0.6;
-}
-.roast {
-    border: 1px dashed rgba(255,100,100,0.4);
-}
-
-/* SOCIAL */
-.social a {
-    display: block;
-    margin: 6px 0;
-    color: #38bdf8;
+    margin: 15px 0;
 }
 
 /* ANIMATION */
 .fade {
     opacity: 0;
-    transform: translateY(60px);
-    transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateY(40px);
+    transition: 1s;
 }
 .fade.show {
     opacity: 1;
     transform: translateY(0);
-}
-
-/* HERO TEXT TYPE EFFECT */
-.typing {
-    border-right: 2px solid;
-    white-space: nowrap;
-    overflow: hidden;
-    animation: typing 3s steps(30), blink .7s infinite;
-}
-@keyframes typing {
-    from { width: 0 }
-    to { width: 100% }
-}
-@keyframes blink {
-    50% { border-color: transparent }
-}
-
-footer {
-    text-align: center;
-    padding: 40px;
-    color: gray;
 }
 </style>
 </head>
@@ -166,19 +109,15 @@ footer {
 <nav>
 <a href="#about">About</a>
 <a href="#labs">Labs</a>
-<a href="#projects">Projects</a>
-<a href="#research">Research</a>
 <a href="#journey">Journey</a>
 <a href="#aboutme">About Me</a>
 <a href="#contact">Contact</a>
-<span class="toggle" onclick="toggleMode()">🌙</span>
 </nav>
 
 <div class="hero">
 <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=Shivanand">
-<h1 class="typing">Shivanand</h1>
+<h1>Shivanand</h1>
 <p>AIML Student • Night Owl • Anime Guy</p>
-<p>Runs on curiosity. Not caffeine.</p>
 
 <a href="resume.pdf" download>
 <button class="btn">Download Resume</button>
@@ -187,104 +126,112 @@ footer {
 
 <section id="about" class="fade">
 <h2>About</h2>
-<div class="grid">
-<div class="card">Focused on AIML and real-world systems.</div>
-<div class="card">Prefers building over memorizing.</div>
-<div class="card">Ideas arrive after midnight 🌙</div>
-<div class="card">No caffeine. Still functioning.</div>
+
+<div class="card">
+<p>
+I am currently focused on Artificial Intelligence and Machine Learning,
+with a strong interest in understanding systems deeply rather than just learning theory.
+</p>
+
+<p>
+My goal is to move towards research-oriented thinking, where I can build,
+analyze, and improve real-world AI systems instead of just implementing existing ideas.
+</p>
 </div>
+
 </section>
 
 <section id="labs" class="fade">
 <h2>Labs & Research</h2>
 
 <div class="card">
-<h3>🏢 Singularity Lab</h3>
+<h3>Singularity Lab</h3>
+
 <p>
-A student-driven innovation space focused on experimentation, collaboration, and real-world systems.
+Singularity Lab is a student-driven innovation space where learning goes beyond classrooms.
+It focuses on experimentation, collaboration, and building systems rather than just studying concepts.
 </p>
+
+<p>
+Being part of this lab exposed me to a more practical and research-oriented environment,
+where ideas are discussed, tested, and sometimes fail — which is an important part of learning.
+</p>
+
 </div>
 
 <div class="card">
-<h3>🤖 Prajna Kritrima</h3>
+<h3>Prajna Kritrima (AIML Lab)</h3>
+
 <p>
-AIML-focused sub-lab working on models, research thinking, and applied AI.
+This is the AI/ML-focused sub-lab where the focus shifts from general exploration
+to domain-specific understanding.
 </p>
+
+<p>
+Here, I work on building foundational understanding in machine learning,
+exploring models, and gradually moving toward research-based thinking.
+</p>
+
 </div>
 
-</section>
-
-<section id="projects" class="fade">
-<h2>Projects</h2>
-<div class="card">
-<h3>AI Steganography Detector</h3>
-<p>Detect hidden data inside images using ML.</p>
-</div>
-</section>
-
-<section id="research" class="fade">
-<h2>Research</h2>
-<div class="card">Image Steganography Research — first step</div>
 </section>
 
 <section id="journey" class="fade">
 <h2>Journey</h2>
 
-<div class="timeline">
+<div class="card">
+<p>
+My journey started with a strong focus on JEE preparation throughout school.
+Like many, I had expectations of entering top institutes, but things did not go as planned.
+</p>
 
-<div class="card">JEE phase → didn’t crack → SRM entry (plot twist)</div>
-<div class="card">Introvert → forced social upgrade</div>
-<div class="card">Explored everything → chaos mode</div>
-<div class="card">Joined lab → started serious work</div>
-<div class="card">Hackathons + events → real exposure</div>
-<div class="card">First research paper → small but important</div>
-<div class="card">Now → focused AIML + growth</div>
+<p>
+After not achieving that goal, I joined SRM University AP, which turned out to be a turning point.
+Instead of being stuck, I started exploring new directions.
+</p>
+
+<p>
+In my first semester, I explored multiple domains — AI/ML, cybersecurity, game development, and IoT.
+While this gave me exposure, it also showed me that I lacked depth.
+</p>
+
+<p>
+Over time, I realized the importance of focus and consistency.
+Joining Singularity Lab helped me shift from random exploration to structured learning.
+</p>
+
+<p>
+Now, I am focusing on AIML, building projects, and moving towards research,
+with a clearer direction than before.
+</p>
 
 </div>
 
 </section>
 
 <section id="aboutme" class="fade">
-<h2>About Me (Human Version)</h2>
+<h2>About Me</h2>
 
-<div class="grid">
-
-<div class="card fun">
-<h3>🍜 Cooking</h3>
-<p>Maggie optimized. Chef backup ready.</p>
-<span class="stat">Skill: 8/10</span>
-</div>
-
-<div class="card fun">
-<h3>🎌 Anime</h3>
-<p>1000+ anime. This is permanent now.</p>
-<span class="stat">Status: No return</span>
-</div>
-
-<div class="card fun roast">
-<h3>😂 Self Roast</h3>
+<div class="card">
 <p>
-Professional overthinker.<br>
-Semi-professional procrastinator.<br>
-Improving slowly.
+Outside of academics, I enjoy cooking (especially vegetarian dishes),
+and I can confidently say I’ve optimized making Maggie.
 </p>
-<span class="stat">Version: Updating</span>
-</div>
 
-<div class="card fun roast">
-<h3>😴 Laziness</h3>
 <p>
-Not lazy… just energy efficient.<br>
-Will overthink instead of doing.
+I am also deeply into anime, manga, and manhwa — having watched over 1000+ anime.
+At this point, it’s not just entertainment but something I genuinely enjoy analyzing.
 </p>
-<span class="stat">Efficiency: Misused</span>
-</div>
 
-<div class="card fun">
-<h3>🌙 Lifestyle</h3>
-<p>Night owl. No caffeine. Still alive.</p>
-<span class="stat">Energy: Unknown</span>
-</div>
+<p>
+I tend to overthink a lot, and sometimes I spend more time planning than executing.
+There is also a tendency towards laziness — or what I prefer to call “energy optimization”.
+</p>
+
+<p>
+However, I am actively working on improving consistency and execution,
+which I believe is the most important skill I need to develop right now.
+</p>
 
 </div>
 
@@ -295,7 +242,7 @@ Will overthink instead of doing.
 
 <p>Email: asaishivanand@gmail.com</p>
 
-<div class="social">
+<div class="socials">
 <a href="https://github.com/asaishivanand-design">GitHub</a>
 <a href="https://www.linkedin.com/in/a-sai-shivanand-9398b3321">LinkedIn</a>
 <a href="https://medium.com/@asaishivanand">Medium</a>
@@ -305,15 +252,7 @@ Will overthink instead of doing.
 
 </section>
 
-<footer>
-<p>© 2026 Shivanand • Built without caffeine</p>
-</footer>
-
 <script>
-function toggleMode() {
-    document.body.classList.toggle("dark");
-}
-
 const elements = document.querySelectorAll('.fade');
 const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -321,8 +260,7 @@ const observer = new IntersectionObserver(entries => {
             entry.target.classList.add('show');
         }
     });
-}, {threshold: 0.1});
-
+});
 elements.forEach(el => observer.observe(el));
 </script>
 
