@@ -16,7 +16,7 @@ body {
 nav {
     position: sticky;
     top: 0;
-    background: rgba(30,41,59,0.9);
+    background: #1e293b;
     padding: 15px;
     text-align: center;
 }
@@ -37,34 +37,16 @@ nav a {
     border-radius: 50%;
     border: 3px solid #38bdf8;
 }
-.hero h1 {
-    font-size: 42px;
-}
-.hero span {
-    color: #38bdf8;
-}
-.hero p {
-    opacity: 0.85;
-}
-.btn {
-    margin-top: 20px;
-    padding: 12px 25px;
-    border-radius: 8px;
-    border: none;
-    background: #38bdf8;
-    color: black;
-    cursor: pointer;
-}
+.hero h1 { font-size: 42px; }
+.hero span { color: #38bdf8; }
 
 /* SECTION */
 section {
     padding: 60px 20px;
-    max-width: 900px;
+    max-width: 1000px;
     margin: auto;
 }
-h2 {
-    color: #38bdf8;
-}
+h2 { color: #38bdf8; }
 
 /* CARD */
 .card {
@@ -76,6 +58,13 @@ h2 {
 }
 .card:hover {
     transform: translateY(-5px);
+}
+
+/* IMAGE */
+.project-img {
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 10px;
 }
 
 /* TAGS */
@@ -112,7 +101,6 @@ footer {
     background: #1e293b;
 }
 </style>
-
 </head>
 
 <body>
@@ -120,6 +108,7 @@ footer {
 <nav>
 <a href="#">Home</a>
 <a href="#about">About</a>
+<a href="#experience">Experience</a>
 <a href="#projects">Projects</a>
 <a href="#life">Life</a>
 <a href="#contact">Contact</a>
@@ -128,57 +117,100 @@ footer {
 <div class="hero">
 <img src="https://i.imgur.com/ZF6s192.png">
 <h1>Hi, I'm <span>Shivanand</span></h1>
-<p>AIML Student | Future Researcher | Night Owl 🦉</p>
+<p>AIML Student | Research Oriented | Night Owl 🦉</p>
 <p>I don’t run on caffeine. I run on curiosity.</p>
-
-<button class="btn" onclick="document.getElementById('projects').scrollIntoView()">
-View My Work
-</button>
 </div>
 
+<!-- ABOUT -->
 <section id="about" class="fade">
 <h2>About Me</h2>
 <div class="card">
 <p>
-I’m an AIML student focused on building meaningful projects and understanding how things actually work.<br><br>
+I am an AIML student focused on understanding systems deeply and building meaningful projects.<br><br>
 
-I’m not here just to pass exams — I’m here to build, experiment, and improve consistently.<br><br>
+I prefer learning by doing — experimenting, failing, and improving.<br><br>
 
-Also, I don’t drink coffee… or cool drinks… which means all my code runs on pure willpower.
+Goal: Become someone who can build impactful AI systems and contribute to real-world problem solving.
 </p>
 </div>
 </section>
 
+<!-- EXPERIENCE -->
+<section id="experience" class="fade">
+<h2>Experience</h2>
+
+<div class="card">
+<h3>Singularity Lab — AIML Lab (Prajna Kritrima)</h3>
+<p><b>Member | Sept 2025 – Present</b></p>
+
+<ul>
+<li>Participating in AI/ML exploration and experimentation</li>
+<li>Engaging in research discussions and idea validation</li>
+<li>Working on problem-solving and implementation-based learning</li>
+<li>Collaborating with peers on technical development</li>
+</ul>
+
+<p><i>Basically learning how real tech actually works beyond classrooms.</i></p>
+
+<img class="project-img" src="https://i.imgur.com/8Km9tLL.jpg">
+</div>
+
+</section>
+
+<!-- PROJECTS -->
 <section id="projects" class="fade">
 <h2>Projects</h2>
 
 <div class="card">
 <h3>AI Steganography Detector</h3>
+
 <p>
-Detect hidden data inside images using machine learning.<br><br>
-Because if something is hidden… I want to find it.
+Building a system to detect hidden information in images using machine learning and deep learning.<br><br>
+
+Exploring:
+<ul>
+<li>CNN-based detection</li>
+<li>Cross-dataset generalization</li>
+<li>Robustness against compression & distortions</li>
+</ul>
+
+Goal: Move towards research-level implementation.
 </p>
 
 <a href="https://github.com/asaishivanand-design" target="_blank">
-→ View on GitHub
+→ View Code
 </a>
+
+<img class="project-img" src="https://i.imgur.com/Z7AzH2c.png">
+</div>
+
+<div class="card">
+<h3>Portfolio & GitHub Development</h3>
+
+<p>
+Building a structured technical presence with clear documentation and project visibility.<br><br>
+
+Trying to not make it look like “random repos uploaded at 3AM”.
+</p>
+
 </div>
 
 </section>
 
+<!-- LIFE -->
 <section id="life" class="fade">
 <h2>Beyond Code</h2>
 
 <div class="card">
 <p>
-🍜 Can cook almost anything (veg only). Maggie is a specialty.<br><br>
+🍜 Cooking: Can cook almost anything veg. Maggie is elite.<br><br>
 
-🌙 Night owl — most ideas come after midnight (and surprisingly… they work).<br><br>
+🌙 Night owl — peak thinking happens when everyone else sleeps.<br><br>
 
-🎌 Anime watcher (1000+ completed) + manga reader.<br>
-Yes, this is both a hobby and a personality trait.<br><br>
+🎌 Anime: 1000+ watched. Manga reader too.<br>
+(Yes, this is serious dedication.)<br><br>
 
-🧠 AIML is my main domain — everything else is just supporting cast.
+🧠 AIML is my main focus — everything else supports it.
 </p>
 
 <div>
@@ -186,13 +218,14 @@ Yes, this is both a hobby and a personality trait.<br><br>
 <span class="tag">Anime</span>
 <span class="tag">Manga</span>
 <span class="tag">AIML</span>
-<span class="tag">Late Night Thinking</span>
+<span class="tag">Night Owl</span>
 </div>
 
 </div>
 
 </section>
 
+<!-- LINKS -->
 <section class="fade">
 <h2>Profiles</h2>
 <div class="links">
@@ -204,6 +237,7 @@ Yes, this is both a hobby and a personality trait.<br><br>
 </div>
 </section>
 
+<!-- CONTACT -->
 <section id="contact" class="fade">
 <h2>Contact</h2>
 <p>Email: asaishivanand@gmail.com</p>
@@ -211,7 +245,7 @@ Yes, this is both a hobby and a personality trait.<br><br>
 </section>
 
 <footer>
-<p>© 2026 Shivanand | Built with consistency (not caffeine)</p>
+<p>© 2026 Shivanand | Built with curiosity, consistency & late nights</p>
 </footer>
 
 <script>
