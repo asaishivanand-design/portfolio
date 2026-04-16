@@ -21,7 +21,6 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
     background: var(--bg);
     color: var(--text);
-    transition: 0.4s;
 }
 
 /* NAV */
@@ -36,12 +35,6 @@ nav {
 }
 nav a { text-decoration: none; color: var(--text); }
 
-.toggle {
-    position: absolute;
-    right: 20px;
-    cursor: pointer;
-}
-
 /* HERO */
 .hero {
     text-align: center;
@@ -51,6 +44,41 @@ nav a { text-decoration: none; color: var(--text); }
     width: 130px;
     border-radius: 50%;
     border: 3px solid #38bdf8;
+}
+
+/* NAME ANIMATION */
+.name {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-name {
+    font-size: 42px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 1s forwards;
+    transition: 0.3s;
+}
+
+/* GLOW ON HOVER */
+.main-name:hover {
+    text-shadow: 0 0 20px rgba(56,189,248,0.8);
+}
+
+.nickname {
+    opacity: 0;
+    font-size: 16px;
+    color: gray;
+    animation: fadeUp 1s forwards;
+    animation-delay: 0.8s;
+}
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* BUTTON */
@@ -75,11 +103,10 @@ nav a { text-decoration: none; color: var(--text); }
     background: var(--card);
     padding: 20px;
     border-radius: 16px;
-    transition: all 0.4s cubic-bezier(0.16,1,0.3,1);
+    transition: 0.4s;
 }
 .card:hover {
     transform: translateY(-10px) scale(1.03);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
 }
 
 /* TIMELINE */
@@ -87,18 +114,8 @@ nav a { text-decoration: none; color: var(--text); }
     border-left: 2px solid #38bdf8;
     padding-left: 20px;
 }
-.timeline .card::before {
-    content: "";
-    position: absolute;
-    left: -28px;
-    top: 20px;
-    width: 12px;
-    height: 12px;
-    background: #38bdf8;
-    border-radius: 50%;
-}
 
-/* SOCIAL BUTTONS */
+/* SOCIAL */
 .socials {
     display: flex;
     flex-wrap: wrap;
@@ -118,7 +135,7 @@ nav a { text-decoration: none; color: var(--text); }
     color: black;
 }
 
-/* ANIMATION */
+/* FADE */
 .fade {
     opacity: 0;
     transform: translateY(50px);
@@ -134,8 +151,34 @@ section {
     margin: auto;
     padding: 80px 20px;
 }
-</style>
 
+/* DRAGON BACKGROUND */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 100%;
+    background: url('https://upload.wikimedia.org/wikipedia/commons/3/3c/Dragon_silhouette.svg') center/contain no-repeat;
+    opacity: 0.05;
+    z-index: -1;
+    transition: transform 0.2s linear;
+}
+
+/* CURSOR TRAIL */
+.trail {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    background: #38bdf8;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0.6;
+    z-index: 999;
+}
+</style>
 </head>
 
 <body>
@@ -146,12 +189,16 @@ section {
 <a href="#journey">Journey</a>
 <a href="#aboutme">About Me</a>
 <a href="#contact">Contact</a>
-<span class="toggle" onclick="toggleMode()">🌙</span>
 </nav>
 
 <div class="hero">
 <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=Shivanand">
-<h1>Shivanand</h1>
+
+<h1 class="name">
+<span class="main-name">Appalla Sai Shivanand</span>
+<span class="nickname">(nandu)</span>
+</h1>
+
 <p>AIML Student • Night Owl • Anime Guy</p>
 
 <a href="resume.pdf" download>
@@ -159,147 +206,62 @@ section {
 </a>
 </div>
 
-<!-- ABOUT -->
+<!-- KEEP YOUR OLD SECTIONS SAME -->
+
 <section id="about" class="fade">
 <h2>About</h2>
 <div class="grid">
 <div class="card">Focused on AIML and building real systems.</div>
 <div class="card">Prefers understanding over memorizing.</div>
-<div class="card">Ideas mostly arrive after midnight 🌙</div>
-<div class="card">No caffeine. Still functioning (somehow).</div>
+<div class="card">Ideas arrive after midnight 🌙</div>
+<div class="card">No caffeine. Still functioning.</div>
 </div>
 </section>
 
-<!-- LABS -->
 <section id="labs" class="fade">
 <h2>Labs</h2>
-
 <div class="grid">
-
-<div class="card">
-<h3>🏢 Singularity Lab</h3>
-<p>
-A place where theory gets tested in reality.<br><br>
-It’s not just about learning concepts, but actually trying things out,
-breaking them, fixing them, and learning in the process.
-</p>
+<div class="card">Singularity Lab — experimentation + real learning</div>
+<div class="card">Prajna Kritrima — AIML focus</div>
 </div>
-
-<div class="card">
-<h3>🤖 Prajna Kritrima</h3>
-<p>
-AIML-focused sub-lab where I started shifting from random exploration
-to actually understanding and building systems.
-</p>
-</div>
-
-</div>
-
 </section>
 
-<!-- JOURNEY -->
 <section id="journey" class="fade">
 <h2>Journey</h2>
-
 <div class="timeline">
-
-<div class="card">
-Started with JEE prep → didn’t crack.<br>
-Reality hit early.
+<div class="card">JEE → SRM</div>
+<div class="card">Introvert → social</div>
+<div class="card">Exploration chaos</div>
+<div class="card">Lab → structured growth</div>
+<div class="card">Research start</div>
 </div>
-
-<div class="card">
-Joined SRM → decided to change approach.<br>
-Started talking to people, improving socially.
-</div>
-
-<div class="card">
-Exploration phase → AIML, cybersec, everything.<br>
-Basically chaos but useful.
-</div>
-
-<div class="card">
-Joined lab → first time things felt structured.<br>
-Started taking things seriously.
-</div>
-
-<div class="card">
-Built projects, worked in events, wrote research paper.<br>
-Small step but important.
-</div>
-
-<div class="card">
-Now → focusing on AIML and consistency.<br>
-Still learning, but direction is clear.
-</div>
-
-</div>
-
 </section>
 
-<!-- ABOUT ME -->
 <section id="aboutme" class="fade">
 <h2>About Me</h2>
-
 <div class="grid">
-
-<div class="card">
-<h3>🍜 Cooking</h3>
-<p>
-Can cook almost anything veg.<br>
-Maggie = mastered.<br>
-Backup life plan secured.
-</p>
+<div class="card">Cooking + Maggie expert</div>
+<div class="card">Anime 1000+</div>
+<div class="card">Overthinking specialist</div>
+<div class="card">Energy-efficient (lazy)</div>
 </div>
-
-<div class="card">
-<h3>🎌 Anime</h3>
-<p>
-1000+ anime watched.<br>
-At this point, it's part of identity.
-</p>
-</div>
-
-<div class="card">
-<h3>😂 Self Roast</h3>
-<p>
-Overthinks everything.<br>
-Plans a lot.<br>
-Executes… improving.
-</p>
-</div>
-
-<div class="card">
-<h3>😴 Laziness</h3>
-<p>
-Not lazy… just energy efficient.<br>
-Sometimes too efficient.
-</p>
-</div>
-
-</div>
-
 </section>
 
-<!-- CONTACT -->
 <section id="contact" class="fade">
 <h2>Contact</h2>
-
 <div class="socials">
 <a href="https://github.com/asaishivanand-design">GitHub</a>
-<a href="https://www.linkedin.com/in/a-sai-shivanand-9398b3321">LinkedIn</a>
-<a href="https://medium.com/@asaishivanand">Medium</a>
-<a href="https://huggingface.co/shivanand21">HuggingFace</a>
-<a href="https://leetcode.com/u/shivanand_appalla/">LeetCode</a>
+<a href="https://www.linkedin.com">LinkedIn</a>
 </div>
-
 </section>
 
 <script>
+/* DARK MODE */
 function toggleMode() {
     document.body.classList.toggle("dark");
 }
 
+/* SCROLL ANIMATION */
 const elements = document.querySelectorAll('.fade');
 const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -309,6 +271,31 @@ const observer = new IntersectionObserver(entries => {
     });
 });
 elements.forEach(el => observer.observe(el));
+
+/* PARALLAX DRAGON */
+window.addEventListener("scroll", () => {
+    document.body.style.setProperty(
+        '--scroll',
+        window.scrollY
+    );
+    document.body.style.setProperty(
+        'transform',
+        `translateY(${window.scrollY * 0.02}px)`
+    );
+});
+
+/* CURSOR TRAIL */
+document.addEventListener("mousemove", e => {
+    const dot = document.createElement("div");
+    dot.className = "trail";
+    dot.style.left = e.clientX + "px";
+    dot.style.top = e.clientY + "px";
+    document.body.appendChild(dot);
+
+    setTimeout(() => {
+        dot.remove();
+    }, 500);
+});
 </script>
 
 </body>
