@@ -7,7 +7,7 @@
 body {
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg, #0f172a, #020617);
+    background: linear-gradient(135deg, #020617, #0f172a);
     color: white;
     scroll-behavior: smooth;
 }
@@ -16,8 +16,8 @@ body {
 nav {
     position: sticky;
     top: 0;
-    background: rgba(30, 41, 59, 0.7);
-    backdrop-filter: blur(10px);
+    background: rgba(30, 41, 59, 0.6);
+    backdrop-filter: blur(12px);
     padding: 15px;
     text-align: center;
 }
@@ -31,12 +31,13 @@ nav a {
 /* HERO */
 .hero {
     text-align: center;
-    padding: 80px 20px;
+    padding: 90px 20px;
 }
-.hero img {
-    width: 120px;
+.avatar {
+    width: 130px;
     border-radius: 50%;
-    margin-bottom: 15px;
+    border: 3px solid #38bdf8;
+    box-shadow: 0 0 20px #38bdf8;
 }
 .hero h1 {
     font-size: 48px;
@@ -46,16 +47,12 @@ nav a {
     -webkit-background-clip: text;
     color: transparent;
 }
-.hero p {
-    opacity: 0.8;
-}
 .btn {
     margin-top: 20px;
     padding: 12px 25px;
-    border: none;
     border-radius: 8px;
+    border: none;
     background: linear-gradient(90deg, #38bdf8, #818cf8);
-    color: black;
     cursor: pointer;
 }
 
@@ -72,31 +69,34 @@ h2 {
 /* CARD */
 .card {
     background: rgba(30, 41, 59, 0.6);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(12px);
     padding: 20px;
     margin: 20px 0;
     border-radius: 15px;
     transition: 0.3s;
 }
 .card:hover {
-    transform: translateY(-8px) scale(1.02);
+    transform: translateY(-10px) scale(1.02);
+}
+
+/* PROJECT BUTTONS */
+.project-links a {
+    display: inline-block;
+    margin: 10px 10px 0 0;
+    padding: 8px 12px;
+    border-radius: 6px;
+    background: #38bdf8;
+    color: black;
+    text-decoration: none;
+    font-size: 14px;
 }
 
 /* LINKS */
 .links a {
     display: block;
-    margin: 8px 0;
+    margin: 6px 0;
     color: #38bdf8;
-    text-decoration: none;
 }
-
-/* ANIME STICKERS */
-.sticker {
-    width: 80px;
-    position: absolute;
-}
-.sticker1 { top: 120px; left: 20px; }
-.sticker2 { top: 300px; right: 20px; }
 
 /* ANIMATION */
 .fade {
@@ -109,7 +109,6 @@ h2 {
     transform: translateY(0);
 }
 
-/* FOOTER */
 footer {
     text-align: center;
     padding: 20px;
@@ -121,79 +120,70 @@ footer {
 
 <body>
 
-<!-- NAVBAR -->
 <nav>
 <a href="#">Home</a>
 <a href="#about">About</a>
 <a href="#projects">Projects</a>
+<a href="#vision">Vision</a>
 <a href="#contact">Contact</a>
 </nav>
 
-<!-- HERO -->
 <div class="hero">
-<img src="https://i.imgur.com/6VBx3io.png" alt="profile">
+<img class="avatar" src="https://i.imgur.com/ZF6s192.png">
 <h1>Hi, I'm <span>Shivanand</span></h1>
-<p>AIML Student | Future Researcher | Occasional Overthinker 😵‍💫</p>
-<p>Trying to build cool stuff and survive engineering at the same time.</p>
+<p>AIML Student | Building Cool Stuff | Slightly Unstable Genius 😵‍💫</p>
 <button class="btn" onclick="document.getElementById('projects').scrollIntoView()">
-See What I'm Cooking 🍳
+Enter My Projects 🚀
 </button>
 </div>
 
-<!-- ANIME STICKERS -->
-<img src="https://i.imgur.com/Wb1qfhK.png" class="sticker sticker1">
-<img src="https://i.imgur.com/jTqXK9T.png" class="sticker sticker2">
-
-<!-- ABOUT -->
 <section id="about" class="fade">
 <h2>About Me</h2>
 <p>
-I'm an AIML student trying to turn caffeine into code ☕💻.<br><br>
-Currently exploring AI, research, and how to not panic before exams.<br><br>
-Long-term goal: build a strong research culture in my college and create things that actually matter.
+I build things when I'm curious… and overthink when I'm not.<br><br>
+Currently exploring AI, real-world problems, and how far I can push myself.<br><br>
+Trying to turn ideas into something actually useful (and not just another GitHub repo).
 </p>
 </section>
 
-<!-- EXPERIENCE -->
-<section class="fade">
-<h2>Experience</h2>
-
-<div class="card">
-<h3>Singularity Lab</h3>
-<p><b>Member</b> | September 2025 – Present</p>
-<p>
-Working in Prajna Kritrima Lab (AIML Lab).  
-Learning, experimenting, and pretending I understand everything (I will eventually 😤).
-</p>
-</div>
-
-</section>
-
-<!-- PROJECTS -->
 <section id="projects" class="fade">
 <h2>Projects</h2>
 
 <div class="card">
 <h3>AI Steganography Detector</h3>
 <p>
-Detect hidden data in images using ML.<br>
-Because apparently images can have secrets… and I don’t like secrets.
+Detect hidden data inside images using ML.<br>
+Because secrets inside pixels felt illegal.
+</p>
+
+<div class="project-links">
+<a href="https://github.com/asaishivanand-design" target="_blank">GitHub</a>
+<a href="#">Live Demo (coming soon)</a>
+</div>
+
+</div>
+
+<div class="card">
+<h3>Upcoming Projects</h3>
+<p>
+Working on more AI + real-world problem solving projects.<br>
+Stay tuned… or don’t… but you’ll miss something cool 😎
 </p>
 </div>
 
 </section>
 
-<!-- VISION -->
-<section class="fade">
+<section id="vision" class="fade">
 <h2>My Vision</h2>
 <p>
-I want to build a culture where students don't just study for exams,
-but actually build, research, and innovate.<br><br>
-Basically… less mugging, more creating 🚀
+I want to become someone who doesn't just learn technology,
+but actually builds things that matter.<br><br>
+
+Not chasing marks, not chasing hype —
+just trying to get better every single day and create something meaningful.
 </p>
 </section>
 
-<!-- PROFILES -->
 <section class="fade">
 <h2>Find Me Online</h2>
 <div class="links">
@@ -205,15 +195,14 @@ Basically… less mugging, more creating 🚀
 </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact" class="fade">
 <h2>Contact</h2>
 <p>Email: asaishivanand@gmail.com</p>
-<p>Phone: Available on request (I don’t give it that easily 😎)</p>
+<p>Phone: Available on request 😎</p>
 </section>
 
 <footer>
-<p>© 2026 Shivanand | Built with sleep deprivation 😴</p>
+<p>© 2026 Shivanand | Built with curiosity + chaos ⚡</p>
 </footer>
 
 <script>
