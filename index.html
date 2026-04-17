@@ -23,6 +23,7 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
     background: var(--bg);
     color: var(--text);
+    transition: 0.4s;
 }
 
 /* LOADER */
@@ -37,16 +38,30 @@ body {
     z-index: 9999;
 }
 
+/* DRAGON BACKGROUND */
+body::before {
+    content:"";
+    position:fixed;
+    top:0;
+    left:50%;
+    transform:translateX(-50%);
+    width:900px;
+    height:100%;
+    background:url('https://raw.githubusercontent.com/Platane/snk/output/github-contribution-grid-snake.svg') center/contain no-repeat;
+    opacity:.08;
+    z-index:-1;
+}
+
 /* NAV */
 nav {
-    position: sticky;
-    top: 0;
-    backdrop-filter: blur(16px);
-    background: rgba(255,255,255,0.6);
-    padding: 15px;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
+    position:sticky;
+    top:0;
+    backdrop-filter:blur(16px);
+    background:rgba(255,255,255,0.6);
+    padding:15px;
+    display:flex;
+    justify-content:center;
+    gap:20px;
 }
 .dark nav { background: rgba(2,6,23,0.6); }
 
@@ -118,13 +133,15 @@ nav a.active { color:#38bdf8; }
     background:var(--card);
     text-decoration:none;
     color:var(--text);
+    transition:.3s;
 }
 .socials a:hover {
     transform:translateY(-5px);
     background:#38bdf8;
+    color:black;
 }
 
-/* FADE */
+/* ANIMATION */
 .fade {
     opacity:0;
     transform:translateY(60px);
@@ -141,48 +158,20 @@ section {
     padding:80px 20px;
 }
 
-/* 🐉 NANDU SNAKE */
-.nandu-snake {
-    position: fixed;
-    bottom: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 600px;
-    opacity: 0.5;
-    z-index: -1;
+/* MOBILE */
+@media(max-width:768px){
+.hero{padding:60px 15px;}
+.hero img{width:100px;}
+section{padding:50px 15px;}
+.grid{grid-template-columns:1fr;}
+nav{flex-wrap:wrap;font-size:14px;}
 }
-
-.nandu-snake circle {
-    filter: drop-shadow(0 0 8px #38bdf8);
-}
-
 </style>
 </head>
 
 <body>
 
 <div id="loader">Loading...</div>
-
-<!-- 🐉 NANDU SNAKE -->
-<svg class="nandu-snake" viewBox="0 0 800 200">
-
-<path id="textPath"
-d="M50,120 L120,50 L180,120 L240,50 L300,120 L360,50 L420,120 L480,50 L540,120"
-fill="none" stroke="rgba(56,189,248,0.2)" stroke-width="3"/>
-
-<circle r="6" fill="#38bdf8">
-<animateMotion dur="5s" repeatCount="indefinite">
-<mpath href="#textPath"/>
-</animateMotion>
-</circle>
-
-<circle r="3" fill="#38bdf8" opacity="0.5">
-<animateMotion dur="5s" begin="0.3s" repeatCount="indefinite">
-<mpath href="#textPath"/>
-</animateMotion>
-</circle>
-
-</svg>
 
 <nav>
 <a href="#about">About</a>
@@ -208,46 +197,93 @@ fill="none" stroke="rgba(56,189,248,0.2)" stroke-width="3"/>
 </a>
 </div>
 
+<!-- ABOUT -->
 <section id="about" class="fade">
 <h2>About</h2>
 <div class="card">
-<p>I’m focused on AIML, trying to move beyond “just running models” to actually understanding them.</p>
-<p>I prefer deep learning (conceptually) over shallow memorization.</p>
-<p>Still figuring things out—but now with direction instead of chaos.</p>
+<p>I’m currently focused on Artificial Intelligence and Machine Learning, trying to move from just “running code” to actually understanding what’s happening under the hood.</p>
+<p>I prefer learning concepts deeply rather than memorizing things blindly — although sometimes I overthink simple problems.</p>
+<p>Right now, my main goal is to build real systems and improve consistency.</p>
+<p>In short: curious mind + improving execution.</p>
 </div>
 </section>
 
+<!-- LABS -->
 <section id="labs" class="fade">
 <h2>Labs</h2>
+
 <div class="card">
-<p>Singularity Lab helped me move from theory → reality.</p>
-<p>Prajna Kritrima gave me AIML focus.</p>
-<p>Now: less exploring, more building.</p>
+<h3>Singularity Lab</h3>
+<p>Student-driven innovation space where ideas are tested, broken, and improved.</p>
+<p>Helped me move from theory to real understanding.</p>
 </div>
+
+<div class="card">
+<h3>Prajna Kritrima</h3>
+<p>AIML-focused lab where I shifted from random exploration to focused learning.</p>
+<p>Now working on understanding models instead of just running them.</p>
+</div>
+
 </section>
 
+<!-- JOURNEY -->
 <section id="journey" class="fade">
 <h2>Journey</h2>
+
 <div class="card">
-<p>JEE phase → didn’t crack → reality hit.</p>
-<p>SRM → exploration phase (too much).</p>
-<p>Chaos → clarity.</p>
-<p>Now → focused AIML + growth.</p>
+<p>JEE prep → didn’t crack → reality check.</p>
+<p>Joined SRM → explored everything.</p>
+<p>Explored too much → learned a lot but no depth.</p>
+<p>Joined lab → things started making sense.</p>
+<p>Now → focused AIML + consistency.</p>
 </div>
+
 </section>
 
+<!-- ABOUT ME -->
 <section id="aboutme" class="fade">
 <h2>About Me</h2>
+
 <div class="grid">
-<div class="card">Cooking (Maggie expert)</div>
-<div class="card">Anime 1000+</div>
-<div class="card">Overthinking</div>
-<div class="card">Improving consistency</div>
+
+<div class="card">
+<h3>🍜 Cooking</h3>
+<p>Maggie optimized. Survival secured.</p>
 </div>
+
+<div class="card">
+<h3>🎌 Anime</h3>
+<p>1000+ anime… basically a lifestyle.</p>
+</div>
+
+<div class="card">
+<h3>🧠 Thinking</h3>
+<p>Overthinking everything… sometimes useful, sometimes not.</p>
+</div>
+
+<div class="card">
+<h3>😂 Self Roast</h3>
+<p>Overthinker + procrastinator → improving slowly.</p>
+</div>
+
+<div class="card">
+<h3>😴 Laziness</h3>
+<p>Energy-efficient mode always on.</p>
+</div>
+
+<div class="card">
+<h3>📈 Growth</h3>
+<p>Not perfect, but moving forward.</p>
+</div>
+
+</div>
+
 </section>
 
+<!-- CONTACT -->
 <section id="contact" class="fade">
 <h2>Contact</h2>
+
 <div class="socials">
 <a href="https://github.com/asaishivanand-design">GitHub</a>
 <a href="https://www.linkedin.com/in/a-sai-shivanand-9398b3321">LinkedIn</a>
@@ -255,6 +291,7 @@ fill="none" stroke="rgba(56,189,248,0.2)" stroke-width="3"/>
 <a href="https://huggingface.co/shivanand21">HuggingFace</a>
 <a href="https://leetcode.com/u/shivanand_appalla/">LeetCode</a>
 </div>
+
 </section>
 
 <script>
