@@ -17,119 +17,7 @@ html { scroll-behavior: smooth; }
     --text: #e2e8f0;
     --card: rgba(30,41,59,0.6);
 }
-<!-- ADD THIS BEFORE </body> -->
 
-<style>
-
-/* 🧠 CARD 3D INTERACTION */
-.card {
-    transform-style: preserve-3d;
-}
-
-.card:hover {
-    transform: translateY(-10px) scale(1.02);
-}
-
-/* ✨ CURSOR GLOW */
-.cursor-glow {
-    position: fixed;
-    width: 12px;
-    height: 12px;
-    background: #38bdf8;
-    border-radius: 50%;
-    pointer-events: none;
-    opacity: 0.5;
-    z-index: 9999;
-    filter: blur(6px);
-}
-
-/* 🎬 DEPTH EFFECT */
-.fade {
-    transform: translateY(60px) scale(0.98);
-}
-
-.fade.show {
-    transform: translateY(0) scale(1);
-}
-
-/* 🎯 BUTTON MAGNET */
-.btn {
-    transition: transform 0.2s ease;
-}
-
-</style>
-
-<script>
-
-/* 🧠 CARD TILT */
-document.querySelectorAll('.card').forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-
-        const rotateX = (y / rect.height - 0.5) * -12;
-        const rotateY = (x / rect.width - 0.5) * 12;
-
-        card.style.transform =
-            `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
-    });
-
-    card.addEventListener('mouseleave', () => {
-        card.style.transform = '';
-    });
-});
-
-/* 🎯 MAGNETIC BUTTON */
-document.querySelectorAll('.btn').forEach(btn => {
-    btn.addEventListener('mousemove', e => {
-        const rect = btn.getBoundingClientRect();
-        const x = e.clientX - rect.left - rect.width/2;
-        const y = e.clientY - rect.top - rect.height/2;
-
-        btn.style.transform = `translate(${x*0.2}px, ${y*0.2}px)`;
-    });
-
-    btn.addEventListener('mouseleave', () => {
-        btn.style.transform = '';
-    });
-});
-
-/* ✨ CURSOR GLOW TRAIL */
-document.addEventListener("mousemove", e => {
-    const glow = document.createElement("div");
-    glow.className = "cursor-glow";
-    glow.style.left = e.clientX + "px";
-    glow.style.top = e.clientY + "px";
-    document.body.appendChild(glow);
-
-    setTimeout(() => glow.remove(), 400);
-});
-
-/* 🔗 NAV ACTIVE */
-const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll("nav a");
-
-window.addEventListener("scroll", () => {
-    let current = "";
-
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop - 200;
-        if (scrollY >= sectionTop) {
-            current = section.getAttribute("id");
-        }
-    });
-
-    navLinks.forEach(link => {
-        link.classList.remove("active");
-        if (link.getAttribute("href") === "#" + current) {
-            link.classList.add("active");
-        }
-    });
-});
-
-</script>
-    
 body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
@@ -221,6 +109,7 @@ nav a.active { color:#38bdf8; }
     border-radius: 16px;
     margin: 15px 0;
     transition: .4s;
+    transform-style: preserve-3d;
 }
 .card:hover {
     transform: translateY(-10px) scale(1.02);
@@ -256,18 +145,31 @@ nav a.active { color:#38bdf8; }
 /* ANIMATION */
 .fade {
     opacity:0;
-    transform:translateY(60px);
+    transform:translateY(60px) scale(0.98);
     transition:1s;
 }
 .fade.show {
     opacity:1;
-    transform:translateY(0);
+    transform:translateY(0) scale(1);
 }
 
 section {
     max-width:1000px;
     margin:auto;
     padding:80px 20px;
+}
+
+/* CURSOR GLOW */
+.cursor-glow {
+    position: fixed;
+    width: 12px;
+    height: 12px;
+    background: #38bdf8;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0.5;
+    z-index: 9999;
+    filter: blur(6px);
 }
 
 /* MOBILE */
@@ -309,7 +211,6 @@ nav{flex-wrap:wrap;font-size:14px;}
 </a>
 </div>
 
-<!-- ABOUT -->
 <section id="about" class="fade">
 <h2>About</h2>
 <div class="card">
@@ -320,7 +221,6 @@ nav{flex-wrap:wrap;font-size:14px;}
 </div>
 </section>
 
-<!-- LABS -->
 <section id="labs" class="fade">
 <h2>Labs</h2>
 
@@ -338,7 +238,6 @@ nav{flex-wrap:wrap;font-size:14px;}
 
 </section>
 
-<!-- JOURNEY -->
 <section id="journey" class="fade">
 <h2>Journey</h2>
 
@@ -352,7 +251,6 @@ nav{flex-wrap:wrap;font-size:14px;}
 
 </section>
 
-<!-- ABOUT ME -->
 <section id="aboutme" class="fade">
 <h2>About Me</h2>
 
@@ -392,7 +290,6 @@ nav{flex-wrap:wrap;font-size:14px;}
 
 </section>
 
-<!-- CONTACT -->
 <section id="contact" class="fade">
 <h2>Contact</h2>
 
@@ -421,7 +318,103 @@ if(e.isIntersecting)e.target.classList.add("show");
 });
 });
 document.querySelectorAll(".fade").forEach(el=>obs.observe(el));
+
+/* CARD TILT */
+document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        const rotateX = (y / rect.height - 0.5) * -12;
+        const rotateY = (x / rect.width - 0.5) * 12;
+
+        card.style.transform =
+            `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+    });
+});
+
+/* MAGNET BUTTON */
+document.querySelectorAll('.btn').forEach(btn => {
+    btn.addEventListener('mousemove', e => {
+        const rect = btn.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width/2;
+        const y = e.clientY - rect.top - rect.height/2;
+
+        btn.style.transform = `translate(${x*0.2}px, ${y*0.2}px)`;
+    });
+
+    btn.addEventListener('mouseleave', () => {
+        btn.style.transform = '';
+    });
+});
+
+/* CURSOR GLOW */
+document.addEventListener("mousemove", e => {
+    const glow = document.createElement("div");
+    glow.className = "cursor-glow";
+    glow.style.left = e.clientX + "px";
+    glow.style.top = e.clientY + "px";
+    document.body.appendChild(glow);
+
+    setTimeout(() => glow.remove(), 400);
+});
+
+/* NAV ACTIVE */
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll("nav a");
+
+window.addEventListener("scroll", () => {
+    let current = "";
+
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop - 200;
+        if (scrollY >= sectionTop) {
+            current = section.getAttribute("id");
+        }
+    });
+
+    navLinks.forEach(link => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === "#" + current) {
+            link.classList.add("active");
+        }
+    });
+});
 </script>
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\\\\
