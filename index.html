@@ -11,6 +11,464 @@
   <link rel="stylesheet" href="style.css" />
 
   <style>
+
+
+    /* ===== SINGULARITY / SUPERNOVA LAB EFFECT ===== */
+    #lab .lab-v2 {
+      isolation:isolate;
+    }
+
+    #lab .lab-v2::before,
+    #lab .lab-v2::after {
+      content:"";
+      position:absolute;
+      left:50%;
+      top:18%;
+      width:34rem;
+      height:34rem;
+      border-radius:50%;
+      pointer-events:none;
+      z-index:-1;
+      transform:translate(-50%,-50%);
+    }
+
+    #lab .lab-v2::before {
+      background:
+        radial-gradient(circle,
+          rgba(255,255,255,.92) 0 2%,
+          rgba(255,190,90,.42) 5%,
+          rgba(178,91,255,.18) 18%,
+          rgba(74,118,255,.10) 32%,
+          transparent 66%);
+      filter:blur(7px);
+      animation:labSupernovaPulse 5.5s ease-in-out infinite;
+    }
+
+    #lab .lab-v2::after {
+      border:1px solid rgba(113,64,170,.14);
+      box-shadow:
+        0 0 45px rgba(137,74,219,.10),
+        inset 0 0 45px rgba(255,174,76,.07);
+      animation:labSupernovaOrbit 14s linear infinite;
+    }
+
+    #lab .lab-v2-head {
+      position:relative;
+    }
+
+    #lab .lab-logo-box {
+      position:relative;
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,.12),
+        0 0 35px rgba(139,74,219,.16),
+        0 18px 34px rgba(0,0,0,.13);
+    }
+
+    #lab .lab-logo-box::after {
+      content:"";
+      position:absolute;
+      inset:-18px;
+      border:1px solid rgba(139,74,219,.13);
+      border-radius:50%;
+      animation:labRing 7s linear infinite;
+      pointer-events:none;
+    }
+
+    #lab .lab-ecosystem-card {
+      transition:
+        transform .35s cubic-bezier(.2,.8,.2,1),
+        box-shadow .35s ease,
+        border-color .35s ease;
+    }
+
+    #lab .lab-ecosystem-card:hover {
+      border-color:rgba(139,74,219,.28);
+      box-shadow:
+        0 18px 35px rgba(0,0,0,.11),
+        0 0 28px rgba(139,74,219,.08);
+    }
+
+    @keyframes labSupernovaPulse {
+      0%,100% {
+        opacity:.42;
+        transform:translate(-50%,-50%) scale(.82);
+      }
+      50% {
+        opacity:.82;
+        transform:translate(-50%,-50%) scale(1.08);
+      }
+    }
+
+    @keyframes labSupernovaOrbit {
+      from { transform:translate(-50%,-50%) rotate(0deg) scale(.92); }
+      to   { transform:translate(-50%,-50%) rotate(360deg) scale(.92); }
+    }
+
+    @keyframes labRing {
+      from {
+        transform:rotate(0deg) scale(.92);
+        opacity:.25;
+      }
+      50% {
+        opacity:.65;
+      }
+      to {
+        transform:rotate(360deg) scale(1.08);
+        opacity:.25;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #lab .lab-v2::before,
+      #lab .lab-v2::after,
+      #lab .lab-logo-box::after {
+        animation:none;
+      }
+    }
+
+    /* ===== LAB V2 ===== */
+    .lab-v2 {
+      position:relative;
+      overflow:hidden;
+    }
+
+    .lab-v2-head {
+      display:grid;
+      grid-template-columns:150px 1fr;
+      gap:2rem;
+      align-items:center;
+      margin-bottom:2rem;
+    }
+
+    .lab-logo-box {
+      width:150px;
+      height:150px;
+      display:grid;
+      place-items:center;
+      border:1px solid rgba(0,0,0,.16);
+      border-radius:1.25rem;
+      background:#111;
+      overflow:hidden;
+      box-shadow:0 14px 30px rgba(0,0,0,.12);
+      transition:transform .35s ease;
+    }
+
+    .lab-logo-box:hover {
+      transform:rotate(-3deg) scale(1.04);
+    }
+
+    .lab-logo-box img {
+      width:82%;
+      height:82%;
+      object-fit:contain;
+    }
+
+    .lab-v2-title {
+      margin:0;
+      max-width:900px;
+    }
+
+    .lab-v2-lead {
+      max-width:850px;
+      margin:.85rem 0 0;
+      font-size:1.02rem;
+      line-height:1.8;
+    }
+
+    .lab-photo-strip {
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:1rem;
+      margin:1.25rem 0;
+    }
+
+    .lab-photo {
+      position:relative;
+      min-height:290px;
+      overflow:hidden;
+      border:1px solid rgba(0,0,0,.16);
+      border-radius:1.1rem;
+      background:#111;
+    }
+
+    .lab-photo img {
+      width:100%;
+      height:100%;
+      min-height:290px;
+      object-fit:cover;
+      display:block;
+      transition:transform .7s cubic-bezier(.2,.8,.2,1);
+    }
+
+    .lab-photo:hover img {
+      transform:scale(1.045);
+    }
+
+    .lab-photo-caption {
+      position:absolute;
+      left:1rem;
+      bottom:1rem;
+      padding:.55rem .7rem;
+      border:1px solid rgba(255,255,255,.25);
+      border-radius:.65rem;
+      color:#fff;
+      background:rgba(0,0,0,.62);
+      backdrop-filter:blur(8px);
+      font-family:"DM Mono",monospace;
+      font-size:.68rem;
+      text-transform:uppercase;
+    }
+
+    .lab-ecosystem {
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:1rem;
+      margin-top:1rem;
+    }
+
+    .lab-ecosystem-card {
+      position:relative;
+      padding:1.35rem;
+      min-height:230px;
+      border:1px solid rgba(0,0,0,.15);
+      border-radius:1rem;
+      overflow:hidden;
+      transition:transform .3s ease, box-shadow .3s ease;
+    }
+
+    .lab-ecosystem-card:hover {
+      transform:translateY(-6px);
+      box-shadow:0 18px 35px rgba(0,0,0,.11);
+    }
+
+    .lab-ecosystem-card:nth-child(1) { background:#dce8f2; }
+    .lab-ecosystem-card:nth-child(2) { background:#e8ddf1; }
+    .lab-ecosystem-card:nth-child(3) { background:#e8e1cf; }
+    .lab-ecosystem-card:nth-child(4) { background:#dcebdc; }
+
+    .lab-card-num {
+      font-family:"DM Mono",monospace;
+      font-size:.68rem;
+      opacity:.62;
+    }
+
+    .lab-ecosystem-card h3 {
+      margin:1.25rem 0 .55rem;
+      font-size:1.45rem;
+      letter-spacing:-.035em;
+    }
+
+    .lab-ecosystem-card p {
+      margin:0;
+      line-height:1.7;
+    }
+
+    .lab-joke {
+      margin-top:1rem;
+      padding:1rem 1.2rem;
+      border:1px dashed rgba(0,0,0,.22);
+      border-radius:.9rem;
+      font-family:"DM Mono",monospace;
+      font-size:.72rem;
+      line-height:1.7;
+      background:rgba(255,255,255,.3);
+    }
+
+    .lab-affiliation {
+      display:inline-flex;
+      margin-top:.9rem;
+      padding:.5rem .7rem;
+      border-radius:999px;
+      background:#111;
+      color:#fff;
+      font-family:"DM Mono",monospace;
+      font-size:.68rem;
+      text-transform:uppercase;
+    }
+
+    @media (max-width:820px) {
+      .lab-v2-head { grid-template-columns:1fr; }
+      .lab-logo-box { width:120px; height:120px; }
+      .lab-photo-strip,
+      .lab-ecosystem { grid-template-columns:1fr; }
+    }
+
+
+    /* ===== VISIBLE SINGULARITY MOTION ===== */
+    #lab .lab-v2 {
+      position:relative;
+      isolation:isolate;
+      overflow:hidden;
+    }
+
+    #lab .lab-singularity-visual {
+      position:absolute;
+      width:390px;
+      height:390px;
+      right:-75px;
+      top:-90px;
+      pointer-events:none;
+      z-index:-1;
+      opacity:.9;
+    }
+
+    #lab .lab-singularity-core {
+      position:absolute;
+      left:50%;
+      top:50%;
+      width:82px;
+      height:82px;
+      transform:translate(-50%,-50%);
+      border-radius:50%;
+      background:
+        radial-gradient(circle,
+          rgba(255,255,255,1) 0 5%,
+          rgba(255,220,155,.95) 9%,
+          rgba(176,105,255,.75) 23%,
+          rgba(95,65,180,.32) 45%,
+          transparent 72%);
+      box-shadow:
+        0 0 20px rgba(255,200,110,.45),
+        0 0 65px rgba(151,79,230,.38),
+        0 0 125px rgba(89,91,220,.18);
+      animation:labCorePulse 3.8s ease-in-out infinite;
+    }
+
+    #lab .lab-singularity-core::after {
+      content:"";
+      position:absolute;
+      inset:-18px;
+      border-radius:50%;
+      border:1px solid rgba(155,94,230,.24);
+      animation:labShockwave 3.8s ease-out infinite;
+    }
+
+    #lab .lab-singularity-ring {
+      position:absolute;
+      left:50%;
+      top:50%;
+      border-radius:50%;
+      border:1px solid rgba(126,75,193,.23);
+      transform:translate(-50%,-50%) rotate(-15deg);
+      filter:drop-shadow(0 0 7px rgba(146,84,225,.13));
+    }
+
+    #lab .ring-a {
+      width:165px;
+      height:62px;
+      animation:labOrbitA 7s linear infinite;
+    }
+
+    #lab .ring-b {
+      width:235px;
+      height:92px;
+      border-color:rgba(255,170,82,.16);
+      animation:labOrbitB 11s linear infinite reverse;
+    }
+
+    #lab .ring-c {
+      width:315px;
+      height:125px;
+      border-color:rgba(85,106,219,.13);
+      animation:labOrbitC 16s linear infinite;
+    }
+
+    #lab .lab-particle {
+      position:absolute;
+      width:5px;
+      height:5px;
+      border-radius:50%;
+      background:rgba(255,255,255,.9);
+      box-shadow:0 0 10px rgba(171,105,255,.7);
+      animation:labParticleFloat 5s ease-in-out infinite;
+    }
+
+    #lab .p1 { left:18%; top:47%; animation-delay:-1s; }
+    #lab .p2 { left:28%; top:19%; animation-delay:-3.2s; }
+    #lab .p3 { left:73%; top:22%; animation-delay:-2.1s; }
+    #lab .p4 { left:85%; top:55%; animation-delay:-4.1s; }
+    #lab .p5 { left:61%; top:82%; animation-delay:-.7s; }
+    #lab .p6 { left:33%; top:77%; animation-delay:-2.8s; }
+
+    #lab .lab-v2-head,
+    #lab .lab-photo-strip,
+    #lab .lab-ecosystem,
+    #lab .lab-joke {
+      position:relative;
+      z-index:1;
+    }
+
+    @keyframes labCorePulse {
+      0%,100% {
+        transform:translate(-50%,-50%) scale(.86);
+        opacity:.68;
+      }
+      50% {
+        transform:translate(-50%,-50%) scale(1.12);
+        opacity:1;
+      }
+    }
+
+    @keyframes labShockwave {
+      0% {
+        transform:scale(.65);
+        opacity:.7;
+      }
+      70%,100% {
+        transform:scale(1.8);
+        opacity:0;
+      }
+    }
+
+    @keyframes labOrbitA {
+      from { transform:translate(-50%,-50%) rotate(0deg) scaleY(.95); }
+      to { transform:translate(-50%,-50%) rotate(360deg) scaleY(.95); }
+    }
+
+    @keyframes labOrbitB {
+      from { transform:translate(-50%,-50%) rotate(55deg) scaleY(.92); }
+      to { transform:translate(-50%,-50%) rotate(415deg) scaleY(.92); }
+    }
+
+    @keyframes labOrbitC {
+      from { transform:translate(-50%,-50%) rotate(-25deg) scaleY(.9); }
+      to { transform:translate(-50%,-50%) rotate(335deg) scaleY(.9); }
+    }
+
+    @keyframes labParticleFloat {
+      0%,100% {
+        transform:translate(0,0) scale(.7);
+        opacity:.25;
+      }
+      45% {
+        transform:translate(9px,-14px) scale(1.25);
+        opacity:.95;
+      }
+      75% {
+        transform:translate(-7px,8px) scale(.85);
+        opacity:.5;
+      }
+    }
+
+    @media (max-width:820px) {
+      #lab .lab-singularity-visual {
+        width:300px;
+        height:300px;
+        right:-100px;
+        top:-55px;
+        opacity:.62;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #lab .lab-singularity-core,
+      #lab .lab-singularity-core::after,
+      #lab .lab-singularity-ring,
+      #lab .lab-particle {
+        animation:none;
+      }
+    }
+
     .hobbies-card { overflow: hidden; position: relative; }
     .hobbies-intro { display:flex; align-items:flex-end; justify-content:space-between; gap:2rem; margin-bottom:2rem; }
     .hobbies-intro .display { max-width:760px; margin:0; }
@@ -250,6 +708,7 @@
     <a class="logo" href="#home">NANDU<span>_</span></a>
     <nav class="navlinks">
       <a href="#about">ABOUT</a>\n      <a href="#photo">ME</a>\n      <a href="#hobbies">HOBBIES</a>
+      <a href="#lab">LAB</a>
       <a href="#work">WORK</a>
       <a href="#research">RESEARCH</a>\n      <a href="#publications">PAPERS</a>
       <a href="#music">MUSIC</a>
@@ -427,6 +886,83 @@
         </div>
       </div>
     </section>
+
+
+    <section id="lab" class="section-pad">
+      <div class="hero-card lab-v2 cream reveal">
+        <div class="section-kicker">/ LAB</div>
+
+
+        <div class="lab-singularity-visual" aria-hidden="true">
+          <div class="lab-singularity-core"></div>
+          <div class="lab-singularity-ring ring-a"></div>
+          <div class="lab-singularity-ring ring-b"></div>
+          <div class="lab-singularity-ring ring-c"></div>
+          <i class="lab-particle p1"></i>
+          <i class="lab-particle p2"></i>
+          <i class="lab-particle p3"></i>
+          <i class="lab-particle p4"></i>
+          <i class="lab-particle p5"></i>
+          <i class="lab-particle p6"></i>
+        </div>
+
+        <div class="lab-v2-head">
+          <div class="lab-logo-box">
+            <img src="images/singularity-logo.png" alt="Singularity Lab logo">
+          </div>
+
+          <div>
+            <p class="display lab-v2-title">A little research gravity well — where curiosity gets pulled in and ideas explode into projects.</p>
+            <p class="lab-v2-lead">
+              Labs are where I get to turn curiosity into projects, experiments and research.
+              There is usually a laptop open, someone debugging something, and at least one
+              person saying “bro, just run it once.”
+            </p>
+            <span class="lab-affiliation">I'M PART OF PRAJNA KRITRIMA</span>
+          </div>
+        </div>
+
+        <div class="lab-photo-strip">
+          <figure class="lab-photo">
+            <img src="images/lab-photo-01.png" alt="Lab workspace with students working on computers">
+            <figcaption class="lab-photo-caption">01 / actual lab activities</figcaption>
+          </figure>
+
+          <figure class="lab-photo">
+            <img src="images/lab-photo-02.png" alt="Lab workstation and team setup">
+            <figcaption class="lab-photo-caption">02 / where the debugging happens</figcaption>
+          </figure>
+        </div>
+
+        <div class="lab-ecosystem">
+          <article class="lab-ecosystem-card">
+            <span class="lab-card-num">01 / SINGULARITY LAB</span>
+            <h3>THE BIGGER UMBRELLA</h3>
+            <p>
+              Singularity is the broader research and innovation space. Think of it as
+              the place where different technical interests get a room, a laptop and
+              permission to become unnecessarily ambitious.
+            </p>
+          </article>
+
+          <article class="lab-ecosystem-card">
+            <span class="lab-card-num">02 / PRAJNA KRITRIMA</span>
+            <h3>MY HOME BASE</h3>
+            <p>
+              Prajna Kritrima is the AI/ML-focused lab I am part of. This is where
+              I want to learn properly, build useful things, explore research ideas,
+              and occasionally discover that my code has chosen violence.
+            </p>
+          </article>
+        </div>
+
+        <div class="lab-joke">
+          LAB SURVIVAL FORMULA → curiosity + caffeine-free chaos + Git + 37 browser tabs
+          + one working prototype = somehow, research.
+        </div>
+      </div>
+    </section>
+
 
     <section id="work" class="section-pad">
       <div class="hero-card blue">
