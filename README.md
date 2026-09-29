@@ -28,3 +28,14 @@ python -m http.server 8001
 ```
 Then open:
 `http://localhost:8001`
+
+## Open-source activity
+
+This portfolio is developed in public. Changes are made through normal Git workflows, including feature branches, commits, pull requests, reviews, and releases.
+
+### Current repository activity
+
+- Portfolio deployment: GitHub Pages
+- Source: https://github.com/asaishivanand-design/portfolio
+- Development workflow: feature branches → pull requests → merge
+- Contributions shown here are based on actual repository activity; no artificial activity is generated.
