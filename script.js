@@ -119,3 +119,44 @@ window.addEventListener('keydown', event => {
   if (event.key !== 'Escape') return;
   document.querySelectorAll('.rimuru-bubble.show').forEach(el => el.classList.remove('show'));
 });
+
+/* ===== V10 interaction polish ===== */
+(() => {
+  const topbar=document.querySelector(".topbar");
+  const topButton=document.createElement("button");
+  topButton.className="scroll-top";
+  topButton.type="button";
+  topButton.setAttribute("aria-label","Back to top");
+  topButton.textContent="↑";
+  document.body.appendChild(topButton);
+
+  const nav=[...document.querySelectorAll(".navlinks a")];
+  const sections=nav.map(a=>document.querySelector(a.getAttribute("href"))).filter(Boolean);
+
+  function updateUI(){
+    const y=window.scrollY;
+    if(topbar) topbar.classList.toggle("scrolled",y>20);
+    topButton.classList.toggle("show",y>700);
+    let current="";
+    sections.forEach(section=>{if(section.getBoundingClientRect().top<=140) current=section.id;});
+    nav.forEach(a=>a.classList.toggle("active",a.getAttribute("href")==="#"+current));
+  }
+  window.addEventListener("scroll",updateUI,{passive:true});
+  updateUI();
+  topButton.addEventListener("click",()=>window.scrollTo({top:0,behavior:"smooth"}));
+
+  document.querySelectorAll(".button,.mini-link,.chaos-button,.ask-prompt").forEach(btn=>{
+    btn.addEventListener("click",e=>{
+      const r=btn.getBoundingClientRect();
+      const ripple=document.createElement("span");
+      ripple.className="ripple";
+      ripple.style.width=ripple.style.height=Math.max(r.width,r.height)+"px";
+      ripple.style.left=(e.clientX-r.left-Math.max(r.width,r.height)/2)+"px";
+      ripple.style.top=(e.clientY-r.top-Math.max(r.width,r.height)/2)+"px";
+      if(getComputedStyle(btn).position==="static") btn.style.position="relative";
+      btn.style.overflow="hidden";
+      btn.appendChild(ripple);
+      setTimeout(()=>ripple.remove(),600);
+    });
+  });
+})();
