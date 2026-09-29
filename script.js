@@ -112,3 +112,10 @@ if(guestForm){
     renderGuestbook();
   });
 }
+
+
+// Keyboard accessibility for interactive portfolio cards
+window.addEventListener('keydown', event => {
+  if (event.key !== 'Escape') return;
+  document.querySelectorAll('.rimuru-bubble.show').forEach(el => el.classList.remove('show'));
+});
