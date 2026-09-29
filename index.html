@@ -695,6 +695,80 @@
     .anime-tease { margin-top:1.5rem; padding:1rem 1.2rem; border-radius:.9rem; background:rgba(255,255,255,.5); border:1px dashed rgba(0,0,0,.25); font-family:"DM Mono",monospace; font-size:.76rem; line-height:1.6; }
     @media (max-width:900px) { .hobbies-grid { grid-template-columns:repeat(2,1fr); } }
     @media (max-width:620px) { .hobbies-intro { display:block; } .hobbies-subtitle { margin-top:1rem; } .hobbies-grid { grid-template-columns:1fr; } }
+  
+    /* ===== COMPLETE PORTFOLIO / V8 FINAL ===== */
+    .github-final { background:#f4b000; }
+    .github-final .github-head { margin-top:10px; }
+    .github-final .display { max-width:850px; }
+    .github-final .github-profile-line {
+      display:flex; flex-wrap:wrap; gap:8px; align-items:center;
+      margin-top:14px; font-family:"DM Mono",monospace; font-size:.72rem;
+    }
+    .github-profile-line a { color:#111; text-decoration:none; border-bottom:1px solid #111; }
+    .repo-grid a { position:relative; overflow:hidden; }
+    .repo-grid a::after {
+      content:"↗"; position:absolute; right:12px; top:10px;
+      font:14px "DM Mono",monospace; opacity:.35; transition:.25s;
+    }
+    .repo-grid a:hover::after { transform:translate(3px,-3px); opacity:1; }
+    .repo-tags { display:flex; flex-wrap:wrap; gap:5px; margin-top:auto; }
+    .repo-tags i { font-style:normal; font:8px "DM Mono",monospace; border:1px solid #222; padding:4px 5px; border-radius:999px; }
+
+    .ask-card { background:#dce8f2; }
+    .ask-layout { display:grid; grid-template-columns:1fr 1.1fr; gap:24px; margin-top:24px; }
+    .ask-panel { border:2px solid #111; border-radius:10px; background:#fbf7f0; padding:18px; box-shadow:5px 5px #111; }
+    .ask-form { display:grid; gap:10px; }
+    .ask-form input,.ask-form textarea {
+      width:100%; font:inherit; border:2px solid #111; border-radius:7px;
+      padding:12px; background:#fff; color:#111;
+    }
+    .ask-form textarea { min-height:130px; resize:vertical; }
+    .ask-form button { width:max-content; }
+    .ask-prompts { display:flex; flex-wrap:wrap; gap:7px; margin-top:12px; }
+    .ask-prompt {
+      border:1px solid #222; background:#f4b000; color:#111; border-radius:999px;
+      padding:7px 9px; font:9px "DM Mono",monospace; cursor:pointer;
+    }
+    .ask-prompt:hover { transform:translateY(-2px); }
+    .ask-note { font:9px/1.6 "DM Mono",monospace; opacity:.65; margin-top:10px; }
+
+    .photo-caption-large { padding:12px; border-top:2px solid #111; font:9px/1.4 "DM Mono",monospace; }
+    .photo-wall .photo-tile { background:#111; position:relative; }
+    .photo-wall img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .6s cubic-bezier(.2,.8,.2,1); }
+    .photo-wall .photo-tile:hover img { transform:scale(1.06); }
+    .photo-wall .photo-tile:not(.main-photo) { background:#f4b000; }
+    .photo-wall .main-photo { background:#111; }
+    .photo-wall .main-photo img { object-position:center; }
+
+    .guestbook-final { background:#e9d8df; }
+    .guestbook-meta { font:9px/1.6 "DM Mono",monospace; opacity:.7; margin-top:10px; }
+
+    .endless-section { background:transparent; }
+    .endless-zone { cursor:crosshair; }
+    .endless-zone::before {
+      content:""; position:absolute; inset:-30%; pointer-events:none;
+      background:radial-gradient(circle at var(--gx,50%) var(--gy,50%), rgba(244,176,0,.15), transparent 18%);
+      transition:background .12s ease;
+    }
+    .chaos-stream { position:relative; z-index:1; }
+    .chaos-card { user-select:none; transition:transform .25s ease, filter .25s ease; }
+    .chaos-card:hover { filter:brightness(1.08); }
+    .chaos-controls { display:flex; justify-content:center; gap:9px; flex-wrap:wrap; margin:22px 0 0; position:relative; z-index:2; }
+    .chaos-button {
+      border:2px solid #111; background:#f4b000; color:#111; padding:10px 13px;
+      border-radius:6px; box-shadow:4px 4px #f4b000; font:10px "DM Mono",monospace; cursor:pointer;
+    }
+    .chaos-button:hover { transform:translateY(-3px); }
+    .chaos-counter { color:#aaa; font:9px "DM Mono",monospace; }
+
+    .final-cta { background:#171717; color:#fff; text-align:center; }
+    .final-cta .display { color:#fff; }
+    .final-cta .button { display:inline-block; }
+
+    @media(max-width:800px){
+      .ask-layout { grid-template-columns:1fr; }
+    }
+
   </style>
 </head>
 <body>
@@ -707,11 +781,15 @@
   <header class="topbar">
     <a class="logo" href="#home">NANDU<span>_</span></a>
     <nav class="navlinks">
-      <a href="#about">ABOUT</a>\n      <a href="#photo">ME</a>\n      <a href="#hobbies">HOBBIES</a>
+      <a href="#about">ABOUT</a>
+      <a href="#photo">ME</a>
+      <a href="#hobbies">HOBBIES</a>
       <a href="#lab">LAB</a>
+      <a href="#github">GITHUB</a>
       <a href="#work">WORK</a>
-      <a href="#research">RESEARCH</a>\n      <a href="#publications">PAPERS</a>
+      <a href="#research">RESEARCH</a>
       <a href="#music">MUSIC</a>
+      <a href="#now">NOW</a>
       <a href="#contact">CONTACT</a>
     </nav>
     <button class="mode" type="button" onclick="toggleMode()">☼</button>
@@ -919,8 +997,7 @@
               person saying “bro, just run it once.”
             </p>
             <span class="lab-affiliation">I'M PART OF PRAJNA KRITRIMA</span>
-          </div>
-        </div>
+          </div>        </div>
 
         <div class="lab-photo-strip">
           <figure class="lab-photo">
@@ -1092,7 +1169,166 @@
           </div>
         </div>
 
-        <div class="music-warning">All four favourite songs are now wired into the player. Use audio you own or have permission to publish. The player is intentionally built for your own/local music files.</div>
+        <div class="music-warning">Your four favourite songs are wired into the player. Use audio you own or have permission to publish. The player is intentionally built for your own/local music files.</div>
+      </div>
+    </section>
+
+
+
+    <section id="github" class="section-pad">
+      <div class="hero-card github-final reveal">
+        <div class="section-kicker">/ GITHUB</div>
+        <div class="github-head">
+          <div>
+            <p class="display">The receipts.</p>
+            <p>Repos, experiments, research and questionable ideas — all slowly turning into an actual body of work.</p>
+          </div>
+          <a class="button" href="https://github.com/asaishivanand-design" target="_blank" rel="noreferrer">OPEN PROFILE ↗</a>
+        </div>
+        <div class="github-profile-line">
+          <span>github.com/asaishivanand-design</span>
+          <span>·</span>
+          <a href="https://github.com/asaishivanand-design/portfolio" target="_blank" rel="noreferrer">this portfolio is open-source</a>
+        </div>
+        <div class="repo-grid">
+          <a href="https://github.com/asaishivanand-design/steganography-detection-cnn" target="_blank" rel="noreferrer">
+            <small>RESEARCH / COMPUTER VISION</small><b>Steganography Detection CNN</b>
+            <span>Detecting hidden information in images with a CNN-based approach.</span>
+            <div class="repo-tags"><i>PYTHON</i><i>CV</i><i>CNN</i></div>
+          </a>
+          <a href="https://github.com/asaishivanand-design/ai-self-healing-devops-monitor" target="_blank" rel="noreferrer">
+            <small>AI / DEVOPS</small><b>AI Self-Healing DevOps Monitor</b>
+            <span>Website monitoring, crash detection and AI-assisted root-cause analysis.</span>
+            <div class="repo-tags"><i>REACT</i><i>NODE</i><i>OLLAMA</i></div>
+          </a>
+          <a href="https://github.com/asaishivanand-design/Checkora" target="_blank" rel="noreferrer">
+            <small>OPEN SOURCE / GAME</small><b>Checkora</b>
+            <span>An open-source chess platform with a minimax + alpha-beta AI opponent.</span>
+            <div class="repo-tags"><i>DJANGO</i><i>C++</i><i>AI</i></div>
+          </a>
+          <a href="https://github.com/asaishivanand-design/nyay-setu-working" target="_blank" rel="noreferrer">
+            <small>FULL STACK / AI</small><b>Nyay Setu</b>
+            <span>A legal-tech platform combining role-based workflows, AI assistance and case management.</span>
+            <div class="repo-tags"><i>REACT</i><i>SPRING</i><i>AI</i></div>
+          </a>
+          <a href="https://github.com/asaishivanand-design/microscopy-image-forensics" target="_blank" rel="noreferrer">
+            <small>RESEARCH</small><b>Microscopy Image Forensics</b>
+            <span>Hybrid CNN–ViT research direction for AI-generated and steganographically manipulated microscopy images.</span>
+            <div class="repo-tags"><i>CNN</i><i>ViT</i><i>FORENSICS</i></div>
+          </a>
+          <a href="https://github.com/asaishivanand-design/shivanand-currency-convertion" target="_blank" rel="noreferrer">
+            <small>EARLY BUILD</small><b>Currency Conversion</b>
+            <span>A small C project — proof that not every repo needs to be a research paper.</span>
+            <div class="repo-tags"><i>C</i><i>CLI</i></div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="experiments" class="section-pad">
+      <div class="hero-card experiments-card reveal">
+        <div class="section-kicker">/ EXPERIMENTS</div>
+        <p class="display">Somewhere between a project and “let's see what happens.”</p>
+        <div class="experiment-stack">
+          <div class="experiment"><span>01</span><b>AI Self-Healing DevOps</b><i>↗</i></div>
+          <div class="experiment"><span>02</span><b>Chess AI / Checkora</b><i>♟</i></div>
+          <div class="experiment"><span>03</span><b>Consent Simulator</b><i>⌁</i></div>
+          <div class="experiment"><span>04</span><b>Currency Converter</b><i>₹</i></div>
+          <div class="experiment"><span>05</span><b>Image Forensics Pipelines</b><i>◌</i></div>
+        </div>
+        <p style="margin-top:18px;font-family:'DM Mono',monospace;font-size:9px;opacity:.75;">RULE OF EXPERIMENTS → if it teaches me something, it wasn't wasted.</p>
+      </div>
+    </section>
+
+    <section id="photography" class="section-pad">
+      <div class="hero-card photography-card reveal">
+        <div class="section-kicker">/ PHOTOGRAPHY</div>
+        <p class="display">A few frames from the world outside the terminal.</p>
+        <div class="photo-wall">
+          <figure class="photo-tile main-photo">
+            <img src="images/lab-photo-01.png" alt="Students working in a lab">
+          </figure>
+          <figure class="photo-tile"><img src="images/lab-photo-02.png" alt="Computer workstation in the lab"></figure>
+          <div class="photo-tile text-tile">LAB LIGHTS.<br>LONG NIGHTS.</div>
+          <div class="photo-tile yellow-tile">MORE<br>MOMENTS<br>LATER →</div>
+          <div class="photo-tile blue-tile">CAMERA ROLL<br>UNDER<br>CONSTRUCTION.</div>
+        </div>
+        <p class="photo-caption-large">I don't pretend to be a photographer. I just like keeping proof that certain days happened.</p>
+      </div>
+    </section>
+
+    <section id="guestbook" class="section-pad">
+      <div class="hero-card guestbook-final reveal">
+        <div class="section-kicker">/ GUESTBOOK</div>
+        <p class="display">Leave something behind.</p>
+        <div class="guestbook-layout">
+          <div>
+            <p>Found something interesting? Say hi. Roast the design. Leave a thought. The wall is yours.</p>
+            <p class="guestbook-meta">LOCAL MODE → messages are saved in this browser only. A real shared backend can come later.</p>
+          </div>
+          <form id="guestbookForm" class="guest-form guest-form-panel">
+            <input id="guestName" type="text" maxlength="40" placeholder="Your name" required>
+            <textarea id="guestMessage" maxlength="300" placeholder="Say something..." required></textarea>
+            <button class="button" type="submit">SIGN THE WALL →</button>
+          </form>
+        </div>
+        <div id="guestMessages" class="guest-messages" style="margin-top:22px;"></div>
+      </div>
+    </section>
+
+    <section id="ask" class="section-pad">
+      <div class="hero-card ask-card reveal">
+        <div class="section-kicker">/ ASK ME</div>
+        <p class="display">Question? Throw it at me.</p>
+        <div class="ask-layout">
+          <div>
+            <p>Could be about a project, AI/ML, research, Linux, anime, music, or why I decided CSS needed this much JavaScript.</p>
+            <div class="ask-prompts">
+              <button class="ask-prompt" type="button" data-prompt="What are you researching right now?">YOUR RESEARCH?</button>
+              <button class="ask-prompt" type="button" data-prompt="What project are you most proud of?">FAVOURITE PROJECT?</button>
+              <button class="ask-prompt" type="button" data-prompt="Why Fedora?">WHY FEDORA?</button>
+              <button class="ask-prompt" type="button" data-prompt="What anime should I watch?">ANIME REC?</button>
+            </div>
+          </div>
+          <div class="ask-panel">
+            <form id="askForm" class="ask-form">
+              <input id="askName" type="text" maxlength="50" placeholder="Your name">
+              <textarea id="askQuestion" maxlength="600" placeholder="Ask me anything..."></textarea>
+              <button class="button" type="submit">SEND QUESTION ↗</button>
+            </form>
+            <div class="ask-note">This opens your email client with the question ready to send.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="endless" class="section-pad endless-section">
+      <div class="endless-zone reveal" id="endlessZone">
+        <div class="section-kicker">/ ENDLESS SCROLL</div>
+        <div class="chaos-intro">THIS SECTION<br>HAS <span>NO PURPOSE.</span></div>
+        <div class="chaos-stream" id="chaosStream">
+          <div class="chaos-card">37 TABS OPEN</div>
+          <div class="chaos-card">GIT PUSH?</div>
+          <div class="chaos-card">RIMURU APPROVES</div>
+          <div class="chaos-card">10 BILLION PERCENT</div>
+          <div class="chaos-card">BUILD → BREAK → REPEAT</div>
+          <div class="chaos-card">ONE MORE PROJECT</div>
+          <div class="chaos-card">WHY IS IT 2 AM?</div>
+          <div class="chaos-card">IT WORKS. DON'T TOUCH IT.</div>
+        </div>
+        <div class="chaos-controls">
+          <button class="chaos-button" id="chaosButton" type="button">MAKE IT WORSE</button>
+          <span class="chaos-counter" id="chaosCounter">CHAOS LEVEL 08</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad">
+      <div class="hero-card final-cta reveal">
+        <div class="section-kicker">/ THAT'S IT</div>
+        <p class="display">You made it all the way down here.</p>
+        <p>Now go outside. Touch grass. Or open another GitHub repo. Your call.</p>
+        <a class="button" href="#home">BACK TO TOP ↑</a>
       </div>
     </section>
 
@@ -1104,7 +1340,7 @@
       <a class="contact-card rust" href="https://github.com/asaishivanand-design/portfolio" target="_blank" rel="noreferrer"><span>◫</span><b>PORTFOLIO SOURCE</b><small>THIS WEBSITE'S CODE ↗</small></a>
     </section>
 
-    <footer>Nandu_ · Appalla Sai Shivanand · built with curiosity · © 2026</footer>
+    <footer>Nandu_ · Appalla Sai Shivanand · built with curiosity · built in public · © 2026</footer>
   </main>
 
   <script>
@@ -1175,6 +1411,67 @@
 
       setTimeout(() => showBubble("HI 👋"), 700);
       requestAnimationFrame(update);
+    })();
+  </script>
+
+
+  <script>
+    (() => {
+      const askForm = document.getElementById('askForm');
+      const askQuestion = document.getElementById('askQuestion');
+      const askName = document.getElementById('askName');
+      document.querySelectorAll('.ask-prompt').forEach(btn => {
+        btn.addEventListener('click', () => {
+          askQuestion.value = btn.dataset.prompt || '';
+          askQuestion.focus();
+        });
+      });
+      if (askForm) {
+        askForm.addEventListener('submit', e => {
+          e.preventDefault();
+          const q = askQuestion.value.trim();
+          if (!q) return askQuestion.focus();
+          const name = askName.value.trim() || 'Someone from the internet';
+          const subject = encodeURIComponent('Portfolio question from ' + name);
+          const body = encodeURIComponent(q + '\n\n— ' + name);
+          window.location.href = `mailto:asaishivanand@gmail.com?subject=${subject}&body=${body}`;
+        });
+      }
+
+      const zone = document.getElementById('endlessZone');
+      if (zone) {
+        zone.addEventListener('pointermove', e => {
+          const r = zone.getBoundingClientRect();
+          zone.style.setProperty('--gx', `${((e.clientX-r.left)/r.width)*100}%`);
+          zone.style.setProperty('--gy', `${((e.clientY-r.top)/r.height)*100}%`);
+        });
+      }
+
+      const chaosButton = document.getElementById('chaosButton');
+      const chaosStream = document.getElementById('chaosStream');
+      const chaosCounter = document.getElementById('chaosCounter');
+      const chaosWords = [
+        'COMMIT FIRST. THINK LATER.', 'WHY DOES THIS WORK?', 'ONE LAST FIX',
+        'RESEARCH GAP DETECTED', 'FEDORA MOMENT', 'BRO IT COMPILES',
+        'NO COFFEE. STILL BUILDING.', 'SLEEP IS OPTIONAL?', '404: MOTIVATION NOT FOUND',
+        'DEPLOY IT', 'ANIME BREAK', 'README LATER'
+      ];
+      let chaos = 8;
+      if (chaosButton && chaosStream) {
+        chaosButton.addEventListener('click', () => {
+          const card = document.createElement('div');
+          card.className = 'chaos-card';
+          card.textContent = chaosWords[Math.floor(Math.random()*chaosWords.length)];
+          card.style.animationDelay = `${Math.random()*1.2}s`;
+          chaosStream.appendChild(card);
+          chaos++;
+          chaosCounter.textContent = `CHAOS LEVEL ${String(chaos).padStart(2,'0')}`;
+          if (chaos > 24) {
+            const first = chaosStream.firstElementChild;
+            if (first) first.remove();
+          }
+        });
+      }
     })();
   </script>
 
