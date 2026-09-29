@@ -179,3 +179,7 @@ body { overflow-x:hidden; }
   .photo-wall{grid-template-columns:1fr 1fr;grid-template-rows:260px 130px;}
   .main-photo{grid-column:1/3;}
 }
+
+
+/* Portfolio v9: project and roadmap layout */
+.project-grid,.roadmap-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin-top:2rem}.project-card,.roadmap-grid>div{padding:1.4rem;border:1px solid var(--line,#333);border-radius:18px;background:rgba(255,255,255,.03)}.project-card h3,.roadmap-grid h3{margin:.5rem 0}.project-card p,.roadmap-grid p{opacity:.78;line-height:1.6}.project-card a{display:inline-block;margin-top:.8rem}.project-status,.roadmap-grid span{font-size:.72rem;letter-spacing:.12em;opacity:.65}@media(max-width:800px){.project-grid,.roadmap-grid{grid-template-columns:1fr}}
