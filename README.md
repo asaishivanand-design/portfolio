@@ -39,3 +39,19 @@ This portfolio is developed in public. Changes are made through normal Git workf
 - Source: https://github.com/asaishivanand-design/portfolio
 - Development workflow: feature branches → pull requests → merge
 - Contributions shown here are based on actual repository activity; no artificial activity is generated.
+
+## Portfolio
+
+Live site: https://asaishivanand-design.github.io/portfolio/
+
+### Current build
+- Research: microscopy image forensics, CNN + Vision Transformer direction
+- Backend: Python, FastAPI, Java, Spring Boot
+- Open source: feature branches, commits, pull requests and collaboration
+- Community: Singularity Lab, hackathons and technical events
+
+### Selected repositories
+- https://github.com/asaishivanand-design/microscopy-image-forensics
+- https://github.com/asaishivanand-design/steganography-detection-cnn
+- https://github.com/asaishivanand-design/ai-self-healing-devops-monitor
+- https://github.com/asaishivanand-design/nyay-setu-working
